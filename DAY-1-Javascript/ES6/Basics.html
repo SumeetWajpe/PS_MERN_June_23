@@ -18,20 +18,39 @@
       x = 200;
       x = "Hello";
 
-      const PI = 3.14;
+      //   const PI = 3.14;
       //   PI = 3.14533; // Error
-      const person = { name: "Nadal", sport: "Tennis" };
+      //   const person = { name: "Nadal", sport: "Tennis" };
       //   person.name = "Rafael Nadal";
       // person = {}; // Error !
 
       // Destructuring - Arrays & Objects
       // With Arrays
-      var cars = ["BMW", "AUDI", "Merc", "Mahindra"];
+      //   var cars = ["BMW", "AUDI", "Merc"];
       //   let firstCar, secondCar;
       //   firstCar = cars[0];
       //   secondCar = cars[1];
       // OR
-      let [firstCar, , , secondCar = "TATA"] = cars;
+      //   let [firstCar, , , secondCar = "TATA"] = cars;
+      // With Objects
+
+      const person = {
+        name: "Nadal",
+        language: "Spanish",
+        sport: "Tennis",
+        stats: {
+          handed: "left-handed",
+          grandslamswon: 22,
+        },
+        age: 37,
+      };
+      //   let name, sport;
+      //   name = person.name;
+      //   sport = person.sport;
+      let {
+        name,
+        stats: { grandslamswon },
+      } = person;
     </script>
   </head>
   <body></body>
