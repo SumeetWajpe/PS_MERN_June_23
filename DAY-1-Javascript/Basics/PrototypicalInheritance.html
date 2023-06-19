@@ -29,6 +29,19 @@
 
       var jbc = new JamesBondCar();
       jbc.accelerate();
+
+      // Extending default types with prototypes
+      Date.prototype.getDayName = function () {
+        switch (this.getDay()) {
+          case 1:
+            return "Monday";
+          case 2:
+            return "Tuesday";
+        }
+      };
+
+      var date = new Date();
+      console.log(date.getDayName());
     </script>
   </head>
   <body></body>
