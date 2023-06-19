@@ -6,9 +6,29 @@
     <title>Document</title>
     <script>
       //   var o = Object.create(null);
-      var person = { name: "Federer", country: "Switzerland" };
-      var player = Object.create(person); // sets prototype of player to be person
-    
+      //   var person = { name: "Roger Federer", country: "Switzerland" };
+      //   var player = Object.create(person); // sets prototype of player to be person
+
+      //   player.sport = "Tennis";
+
+      function Car() {
+        this.name = "BMW";
+        this.speed = 200;
+        this.accelerate = function () {
+          console.log(
+            "The car " + this.name + " is running at " + this.speed + " kmph !",
+          );
+        };
+      }
+
+      function JamesBondCar() {
+        this.isArmed = false;
+      }
+
+      JamesBondCar.prototype = new Car();
+
+      var jbc = new JamesBondCar();
+      jbc.accelerate();
     </script>
   </head>
   <body></body>
