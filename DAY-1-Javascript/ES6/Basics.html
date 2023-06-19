@@ -59,21 +59,31 @@
       //   PrintPerson(person);
       //Getting person from a method
 
-      function GetPerson() {
-        return {
-          name: "Nadal",
-          language: "Spanish",
-          sport: "Tennis",
-          stats: {
-            handed: "left-handed",
-            grandslamswon: 22,
-          },
-          age: 37,
-        };
-      }
+      //   function GetPerson() {
+      //     return {
+      //       name: "Nadal",
+      //       language: "Spanish",
+      //       sport: "Tennis",
+      //       stats: {
+      //         handed: "left-handed",
+      //         grandslamswon: 22,
+      //       },
+      //       age: 37,
+      //     };
+      //   }
 
-      let { name, age } = GetPerson();
-      console.log(name + " is " + age + " years old !");
+      //   let { name, age } = GetPerson();
+      //   console.log(name + " is " + age + " years old !");
+
+      // Spread Operator - Arrays & Objects
+      //   var cars = ["BMW", "AUDI", "Merc"];
+      //   var moreCars = ["TATA", "MAHINDRA"];
+      //   var allCars = [...cars, ...moreCars, "Aston Martin"];
+
+      var person = { name: "Roger Federer", country: "Switzerland" };
+      var player = { ...person, handed: "right-handed" };
+      person.name = "R Federer";
+      console.log(player); // still has Roger Federer
     </script>
   </head>
   <body></body>
