@@ -12,10 +12,21 @@
         },
       };
 
-      person.greet("Hello");
+      //person.greet("Hello");
 
-      var anotherPerson = { name: "Jim" };
-      person.greet.call(anotherPerson, "Hey");
+      // call
+
+      var anotherPerson = { name: "Jim", country: "USA" };
+      //   person.greet.call(anotherPerson, "Hey");
+
+      //   // apply
+      //   person.greet.apply(anotherPerson, ["Hi"]);
+
+      //bind
+      var greetBindedWithAnotherPerson = person.greet.bind(anotherPerson);
+
+      // after 100 lines of code !
+      greetBindedWithAnotherPerson("Hola");
     </script>
   </head>
   <body></body>
