@@ -5,12 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      function Callback() {
-        console.log(this.salary);
-      }
+      //   function Callback() {
+      //     console.log(this.salary);
+      //   }
+      //   function Emp() {
+      //     this.salary = 200000;
+      //     setTimeout(Callback.bind(this), 2000);
+      //   }
+
+      //   function Emp() {
+      //     this.salary = 200000;
+      //     setTimeout(function () {
+      //       console.log(this.salary);
+      //     }, 2000);
+      //   }
+
+      // with arrow functions
       function Emp() {
         this.salary = 200000;
-        setTimeout(Callback.bind(this), 2000);
+        setTimeout(() => console.log(this.salary), 2000); // the context gets binded with arrow function at the time of creation of the function
       }
 
       var e = new Emp();
