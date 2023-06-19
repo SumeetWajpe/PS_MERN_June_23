@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var person = {
+        name: "John",
+        greet: function (theGreeting) {
+          console.log(theGreeting + " " + this.name + " !");
+        },
+      };
+
+      person.greet("Hello");
+
+      var anotherPerson = { name: "Jim" };
+      person.greet.call(anotherPerson, "Hey");
+    </script>
+  </head>
+  <body></body>
+</html>
