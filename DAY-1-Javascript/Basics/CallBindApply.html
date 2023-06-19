@@ -23,10 +23,13 @@
       //   person.greet.apply(anotherPerson, ["Hi"]);
 
       //bind
-      var greetBindedWithAnotherPerson = person.greet.bind(anotherPerson);
+      var greetBindedWithAnotherPerson = person.greet.bind(
+        anotherPerson,
+        "Hola",
+      );
 
       // after 100 lines of code !
-      greetBindedWithAnotherPerson("Hola");
+      greetBindedWithAnotherPerson();
     </script>
   </head>
   <body></body>
