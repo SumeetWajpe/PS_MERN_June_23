@@ -13,7 +13,16 @@
       //   }
 
       //   console.log(x); // Error
-      let x = 1000;
+      let x; // variable (block scoped)
+      x = 1000;
+      x = 200;
+      x = "Hello";
+
+      const PI = 3.14;
+      //   PI = 3.14533; // Error
+      const person = { name: "Nadal", sport: "Tennis" };
+      //   person.name = "Rafael Nadal";
+      // person = {}; // Error !
     </script>
   </head>
   <body></body>
