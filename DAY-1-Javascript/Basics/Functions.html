@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script>
-      // 1. Function Declaration Syntax
+      // 1. Function Declaration Syntax - Gets Hoisted
+      //   PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
+
       //   function PrintBook(author, title, publication) {
       //     console.log(author, title, publication);
       //   }
 
-      //   PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
-
-      // 2. Function as expression
+      // 2. Function as expression - PrintBook variable gets hoisted
 
       var PrintBook = function (author, title, publication) {
-        console.log(author, title, publication);
+        // console.log(author, title, publication);
+        return "The book " + title + " is written by " + author;
       };
-      PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
+      var result = PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
+      console.log(result);
     </script>
   </head>
   <body></body>
