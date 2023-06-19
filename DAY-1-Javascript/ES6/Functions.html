@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1. Default Parameters
+
+      function PrintBook(
+        author = "Unknown",
+        title = "Unknown",
+        publication = "Dummy",
+      ) {
+        // author = author || "Unknown";
+        // title = title || "Unknown";
+        console.log(author, title, publication);
+      }
+
+      PrintBook();
+      PrintBook("Dr. APJ Abdul Kalam", "India 2020", "Printwell");
+    </script>
+  </head>
+  <body></body>
+</html>
