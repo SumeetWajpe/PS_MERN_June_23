@@ -6,10 +6,17 @@
     <title>Document</title>
     <script>
       // 1. Function Declaration Syntax
-      function PrintBook(author, title, publication) {
-        console.log(author, title, publication);
-      }
+      //   function PrintBook(author, title, publication) {
+      //     console.log(author, title, publication);
+      //   }
 
+      //   PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
+
+      // 2. Function as expression
+
+      var PrintBook = function (author, title, publication) {
+        console.log(author, title, publication);
+      };
       PrintBook("Dr. APJ Abdul Kalam", "Wings Of Fire", "Jaico");
     </script>
   </head>
