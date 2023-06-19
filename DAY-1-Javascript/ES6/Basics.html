@@ -34,23 +34,46 @@
       //   let [firstCar, , , secondCar = "TATA"] = cars;
       // With Objects
 
-      const person = {
-        name: "Nadal",
-        language: "Spanish",
-        sport: "Tennis",
-        stats: {
-          handed: "left-handed",
-          grandslamswon: 22,
-        },
-        age: 37,
-      };
+      //   const person = {
+      //     name: "Nadal",
+      //     language: "Spanish",
+      //     sport: "Tennis",
+      //     stats: {
+      //       handed: "left-handed",
+      //       grandslamswon: 22,
+      //     },
+      //     age: 37,
+      //   };
       //   let name, sport;
       //   name = person.name;
       //   sport = person.sport;
-      let {
-        name,
-        stats: { grandslamswon },
-      } = person;
+      //   let {
+      //     name,
+      //     stats: { grandslamswon },
+      //   } = person;
+
+      //   function PrintPerson({ name, sport }) {
+      //     console.log(name + " plays " + sport);
+      //   }
+
+      //   PrintPerson(person);
+      //Getting person from a method
+
+      function GetPerson() {
+        return {
+          name: "Nadal",
+          language: "Spanish",
+          sport: "Tennis",
+          stats: {
+            handed: "left-handed",
+            grandslamswon: 22,
+          },
+          age: 37,
+        };
+      }
+
+      let { name, age } = GetPerson();
+      console.log(name + " is " + age + " years old !");
     </script>
   </head>
   <body></body>
