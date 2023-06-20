@@ -41,3 +41,27 @@ var CPerson = /** @class */ (function () {
     };
     return CPerson;
 }());
+// var person: Person = { name: "Virat", sport: "Cricket", xyz: 123 };
+var Car = /** @class */ (function () {
+    function Car(name, speed) {
+        if (name === void 0) { name = "BMW"; }
+        if (speed === void 0) { speed = 200; }
+        this.name = name;
+        this.speed = speed;
+    }
+    return Car;
+}());
+var carObj = new Car();
+console.log(carObj.speed);
+// OR
+// Enhanced class syntax
+var EnhancedCar = /** @class */ (function () {
+    function EnhancedCar(name, speed) {
+        if (name === void 0) { name = "Audi"; }
+        if (speed === void 0) { speed = 300; }
+        this.name = name;
+        this.speed = speed;
+    }
+    return EnhancedCar;
+}());
+var enhancedCarObj = new EnhancedCar();

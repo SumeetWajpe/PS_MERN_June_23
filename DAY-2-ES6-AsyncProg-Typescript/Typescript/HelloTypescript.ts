@@ -63,3 +63,30 @@ class CPerson implements IPerson, IHuman {
     return "Hello";
   }
 }
+
+type Person = {
+  name: string;
+  sport: string;
+};
+
+// var person: Person = { name: "Virat", sport: "Cricket", xyz: 123 };
+
+class Car {
+  private name: string;
+  speed: number;
+  constructor(name: string = "BMW", speed: number = 200) {
+    this.name = name;
+    this.speed = speed;
+  }
+}
+
+var carObj = new Car();
+console.log(carObj.speed);
+// OR
+// Enhanced class syntax
+
+class EnhancedCar {
+  constructor(public name: string = "Audi", public speed: number = 300) {}
+}
+
+var enhancedCarObj = new EnhancedCar();
