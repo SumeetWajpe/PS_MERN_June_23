@@ -11,9 +11,11 @@
           this.speed = speed;
         }
         accelerate() {
-          return (
-            "The car " + this.name + " is running at " + this.speed + " kmph !"
-          );
+          //   return (
+          //     "The car " + this.name + " is running at " + this.speed + " kmph !"
+          //   );
+
+          return `The car ${this.name} is running at ${this.speed} kmph !`; // string templates
         }
       }
 
@@ -32,6 +34,12 @@
 
       var jbc = new JamesBondCar();
       console.log(jbc.accelerate());
+
+      var str = `First Line !
+      Second Line !
+      Third Line !
+      `;
+      console.log(str);
     </script>
   </head>
   <body></body>
