@@ -6,9 +6,9 @@
     <title>Document</title>
     <script>
       class Car {
-        constructor() {
-          this.name = "BMW";
-          this.speed = 200;
+        constructor(name = "BMW", speed = 200) {
+          this.name = name;
+          this.speed = speed;
         }
         accelerate() {
           console.log(
@@ -17,8 +17,18 @@
         }
       }
 
-      var carObj = new Car();
-      carObj.accelerate();
+      //   var carObj = new Car();
+      //   carObj.accelerate();
+
+      class JamesBondCar extends Car {
+        constructor(name, speed, isArmed = false) {
+          super(name, speed);
+          this.isArmed = isArmed;
+        }
+      }
+
+      var jbc = new JamesBondCar();
+      jbc.accelerate();
     </script>
   </head>
   <body></body>
