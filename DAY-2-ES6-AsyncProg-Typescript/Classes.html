@@ -11,8 +11,8 @@
           this.speed = speed;
         }
         accelerate() {
-          console.log(
-            "The car " + this.name + " is running at " + this.speed + " kmph !",
+          return (
+            "The car " + this.name + " is running at " + this.speed + " kmph !"
           );
         }
       }
@@ -25,10 +25,13 @@
           super(name, speed);
           this.isArmed = isArmed;
         }
+        accelerate() {
+          return super.accelerate() + " Is Armed ? " + this.isArmed;
+        }
       }
 
       var jbc = new JamesBondCar();
-      jbc.accelerate();
+      console.log(jbc.accelerate());
     </script>
   </head>
   <body></body>
