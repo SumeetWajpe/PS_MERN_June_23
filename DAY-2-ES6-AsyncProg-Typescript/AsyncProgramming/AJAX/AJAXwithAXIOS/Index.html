@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+
+    <script src="GetData.js"></script>
     <script>
-      axios
-        .get("https://jsonplaceholder.typicode.com/posts")
+      let aPromise = GetData();
+      aPromise
         .then(function (response) {
           // handle success
           console.log(response.data);
@@ -16,7 +18,14 @@
           // handle error
           console.log(error);
         });
+
+      let count = 1;
+      function GetCount() {
+        console.log(count++);
+      }
     </script>
   </head>
-  <body></body>
+  <body>
+    <button onclick="GetCount()">++</button>
+  </body>
 </html>
