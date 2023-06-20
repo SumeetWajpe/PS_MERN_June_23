@@ -8,14 +8,13 @@
     <script>
       console.log("Program Started");
       let promise = GetData();
-      promise.then(
-        function (data) {
+      promise
+        .then(function (data) {
           console.log(data);
-        },
-        function (err) {
+        })
+        .catch(function (err) {
           console.log(err);
-        },
-      );
+        });
       console.log("Program Ended");
     </script>
   </head>
