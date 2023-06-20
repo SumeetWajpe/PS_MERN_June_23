@@ -82,6 +82,9 @@ class Car {
 
 var carObj = new Car();
 console.log(carObj.speed);
+
+// let carsColl: Car[] = [new Car()];
+let carsColl = new Array<Car>(new Car(), new Car());
 // OR
 // Enhanced class syntax
 
@@ -90,3 +93,28 @@ class EnhancedCar {
 }
 
 var enhancedCarObj = new EnhancedCar();
+
+// Generics
+// var cars: string[] = ["BMW", "AUDI", "MERC", 10]; // Error
+
+// OR
+
+var carsObj: Array<string> = new Array<string>("TATA", "MAHINDRA");
+
+// Generic Function
+function Swap<T>(x: T, y: T) {
+  let t: T;
+  t = x;
+  x = y;
+  y = t;
+}
+
+Swap<number>(20, 30);
+Swap<string>("Hello", "World");
+
+class Point<T> {
+  x: T;
+  y: T;
+}
+
+var point: Point<number> = new Point<number>();

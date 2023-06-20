@@ -53,6 +53,8 @@ var Car = /** @class */ (function () {
 }());
 var carObj = new Car();
 console.log(carObj.speed);
+// let carsColl: Car[] = [new Car()];
+var carsColl = new Array(new Car(), new Car());
 // OR
 // Enhanced class syntax
 var EnhancedCar = /** @class */ (function () {
@@ -65,3 +67,22 @@ var EnhancedCar = /** @class */ (function () {
     return EnhancedCar;
 }());
 var enhancedCarObj = new EnhancedCar();
+// Generics
+// var cars: string[] = ["BMW", "AUDI", "MERC", 10]; // Error
+// OR
+var carsObj = new Array("TATA", "MAHINDRA");
+// Generic Function
+function Swap(x, y) {
+    var t;
+    t = x;
+    x = y;
+    y = t;
+}
+Swap(20, 30);
+Swap("Hello", "World");
+var Point = /** @class */ (function () {
+    function Point() {
+    }
+    return Point;
+}());
+var point = new Point();
