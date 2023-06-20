@@ -42,3 +42,24 @@ function PrintBook(
 }
 
 PrintBook();
+
+interface IHuman {
+  age: number;
+}
+
+interface IPerson {
+  name?: string;
+  age: number;
+  sport: string;
+  getDetails: () => string;
+}
+
+//var person: IPerson = { name: "Virat", sport: "Cricket", xyz: 123 };
+
+class CPerson implements IPerson, IHuman {
+  sport: string;
+  age: number;
+  getDetails(): string {
+    return "Hello";
+  }
+}

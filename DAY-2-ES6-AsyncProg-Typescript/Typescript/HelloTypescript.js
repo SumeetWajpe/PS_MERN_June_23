@@ -32,3 +32,12 @@ function PrintBook(author, title, publication) {
     console.log(author, title, publication);
 }
 PrintBook();
+//var person: IPerson = { name: "Virat", sport: "Cricket", xyz: 123 };
+var CPerson = /** @class */ (function () {
+    function CPerson() {
+    }
+    CPerson.prototype.getDetails = function () {
+        return "Hello";
+    };
+    return CPerson;
+}());
