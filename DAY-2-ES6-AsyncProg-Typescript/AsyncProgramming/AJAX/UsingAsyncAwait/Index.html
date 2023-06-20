@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="GetData.js"></script>
+    <script>
+      async function LoadPosts() {
+        try {
+          let data = await GetData(); // await suspends the execution of LoadPosts till GetData() resolves
+          console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      LoadPosts();
+    </script>
+  </head>
+  <body></body>
+</html>
