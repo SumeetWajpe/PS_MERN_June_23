@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function ChangeHandler() {
+        let header = document.getElementById("header");
+        header.innerHTML = "Dynamic !";
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="header">Static</h1>
+    <button onclick="ChangeHandler()">Change</button>
+  </body>
+</html>
