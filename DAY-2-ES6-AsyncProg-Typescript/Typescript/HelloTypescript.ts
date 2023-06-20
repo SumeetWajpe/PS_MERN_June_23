@@ -15,9 +15,30 @@ s = [];
 
 // Functions
 
-function Add(x: number, y: number): number {
-  return x + y;
+// function Add(x: number, y: number): number {
+//   return x + y;
+// }
+
+// let result: number = Add(20, 30);
+// console.log(result);
+
+var Add = (x: number, y: number): number => x + y;
+
+let result: number = Add(50, 30);
+console.log(result);
+
+// Optional arguments
+// function PrintBook(author?: string, title?: string, publication?: string) {
+//   console.log(author, title, publication);
+// }
+
+// Default Arguments
+function PrintBook(
+  author: string = "Unknown",
+  title: string = "Unknown",
+  publication: string = "Unknown",
+) {
+  console.log(author, title, publication);
 }
 
-let result: number = Add(20, 30);
-console.log(result);
+PrintBook();
