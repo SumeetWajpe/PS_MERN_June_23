@@ -86,3 +86,5 @@ var Point = /** @class */ (function () {
     return Point;
 }());
 var point = new Point();
+// class Book -> id, title, author
+// coll of 5 books (array)

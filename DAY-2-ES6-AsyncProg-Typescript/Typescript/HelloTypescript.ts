@@ -118,3 +118,6 @@ class Point<T> {
 }
 
 var point: Point<number> = new Point<number>();
+
+// class Book -> id, title, author
+// coll of 5 books (array)
