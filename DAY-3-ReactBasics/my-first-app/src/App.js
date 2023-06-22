@@ -5,11 +5,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Message />
-        <Message />
-        <Message />
-        <Message />
-        <Message />
+        <Message msg="Hello" />
+        <Message msg="Hey" />
+        <Message msg="Bye" />
+        <Message msg="Hi" />
+        <Message msg="Hola" />
       </div>
     );
   }
