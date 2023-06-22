@@ -6,17 +6,37 @@
     <title>Document</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.7.0/react.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/15.7.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0-beta3/JSXTransformer.js"></script>
+    <style>
+      .container {
+        border: 2px solid red;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
 
-    <script>
-      let h1Element = React.createElement(
-        "h1",
-        { id: "header" },
-        "Hello React !",
+    <script type="text/jsx">
+      //   let h1Element = React.createElement("h1", null, "Hello React !");
+      //   let h2Element = React.createElement(
+      //     "h2",
+      //     { id: "header2" },
+      //     "Header 2 !",
+      //   );
+      //   let divElement = React.createElement(
+      //     "div",
+      //     { id: "firstContainer", className: "container" },
+      //     [h1Element, h2Element],
+      //   );
+
+      let divElement = (
+        <div>
+          <h1>Header One !</h1>
+          <h2> Header 2 ! </h2>
+        </div>
       );
-      ReactDOM.render(h1Element, document.getElementById("root"));
+      ReactDOM.render(divElement, document.getElementById("root"));
     </script>
   </body>
 </html>
+
