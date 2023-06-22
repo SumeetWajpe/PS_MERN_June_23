@@ -5,11 +5,24 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Message msg="Hello" />
-        <Message msg="Hey" />
-        <Message msg="Bye" />
-        <Message msg="Hi" />
-        <Message msg="Hola" />
+        <Message
+          msg="Hello"
+          from="Joe"
+          to="Modi"
+          imageUrl="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Hello_Web_Series_%28Wordmark%29_Logo.png/1200px-Hello_Web_Series_%28Wordmark%29_Logo.png"
+        />
+        <Message
+          msg="Hey"
+          from="Jim"
+          to="Kim"
+          imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Hey_2018_logo.svg/1200px-Hey_2018_logo.svg.png"
+        />
+        <Message
+          msg="Bye"
+          from="John"
+          to="Jim"
+          imageUrl="https://chd.in/wp-content/uploads/2018/05/bye.png"
+        />
       </div>
     );
   }
