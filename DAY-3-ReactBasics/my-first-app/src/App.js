@@ -1,5 +1,5 @@
 import React from "react";
-import { Message } from "./components/message.component";
+import { Message } from "./components/message/message.component";
 
 class App extends React.Component {
   messages = [

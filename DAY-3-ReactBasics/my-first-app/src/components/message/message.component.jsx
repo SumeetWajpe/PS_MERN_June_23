@@ -1,4 +1,5 @@
 import React from "react";
+import "./message.css";
 export class Message extends React.Component {
   render() {
     return (
@@ -9,9 +10,9 @@ export class Message extends React.Component {
           height="100px"
           width="150px"
         />
-        <h3>{this.props.details.msg}</h3>
-        <h5>From : {this.props.details.from}</h5>
-        <h5>To : {this.props.details.to}</h5>
+        <h3 className="no-margin">{this.props.details.msg}</h3>
+        <p className="no-margin">From : {this.props.details.from}</p>
+        <p className="no-margin">To : {this.props.details.to}</p>
         <hr />
       </>
     );
