@@ -13,7 +13,6 @@ export class Message extends React.Component {
         <h3 className="no-margin">{this.props.details.msg}</h3>
         <p className="no-margin">From : {this.props.details.from}</p>
         <p className="no-margin">To : {this.props.details.to}</p>
-        <hr />
       </>
     );
   }
