@@ -2,16 +2,18 @@ import React from "react";
 import { Message } from "./components/message.component";
 
 class App extends React.Component {
+  messageOne = {
+    msg: "Hello",
+    from: "Joe",
+    to: "Modi",
+    imageUrl:
+      "https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Hello_Web_Series_%28Wordmark%29_Logo.png/1200px-Hello_Web_Series_%28Wordmark%29_Logo.png",
+  };
   render() {
     return (
       <div>
-        <Message
-          msg="Hello"
-          from="Joe"
-          to="Modi"
-          imageUrl="https://upload.wikimedia.org/wikipedia/en/thumb/6/6b/Hello_Web_Series_%28Wordmark%29_Logo.png/1200px-Hello_Web_Series_%28Wordmark%29_Logo.png"
-        />
-        <Message
+        <Message details={this.messageOne} />
+        {/* <Message
           msg="Hey"
           from="Jim"
           to="Kim"
@@ -22,7 +24,7 @@ class App extends React.Component {
           from="John"
           to="Jim"
           imageUrl="https://chd.in/wp-content/uploads/2018/05/bye.png"
-        />
+        /> */}
       </div>
     );
   }
