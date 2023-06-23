@@ -6,6 +6,10 @@ type ProductProps = {
 };
 
 export class ProductComponent extends React.Component<ProductProps> {
+  IncrementLikes() {
+    console.log("You clicked !");
+    console.log(this);
+  }
   render(): React.ReactNode {
     let ratings: React.ReactNode[] = [];
     for (let i = 0; i < this.props.productdetails.rating; i++) {
@@ -30,8 +34,11 @@ export class ProductComponent extends React.Component<ProductProps> {
             <h5 className="card-title">{this.props.productdetails.title}</h5>
             <p className="card-text m-0">{ratings}</p>
 
-            <p className="card-text m-0">{this.props.productdetails.price}</p>
-            <button className="btn btn-outline-primary">
+            <p className="card-text m-0">₹.{this.props.productdetails.price}</p>
+            <button
+              className="btn btn-outline-primary"
+              onClick={() => this.IncrementLikes()}
+            >
               {this.props.productdetails.likes}{" "}
               <i className="fa fa-thumbs-up" aria-hidden="true"></i>
             </button>
