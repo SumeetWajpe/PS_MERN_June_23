@@ -63,6 +63,11 @@ export class ListOfProducts extends React.Component<{}, ListOfProductsState> {
     // console.log(newProductToBeAdded);
     this.setState({ products: [...this.state.products, newProductToBeAdded] });
   }
+  deleteAProduct(productId: number) {
+    this.setState({
+      products: this.state.products.filter(p => p.id != productId),
+    });
+  }
   render(): React.ReactNode {
     return (
       <>
@@ -74,7 +79,10 @@ export class ListOfProducts extends React.Component<{}, ListOfProductsState> {
         <h1> List Of Products</h1>
         <div className="row">
           {this.state.products.map((product: ProductModel) => (
-            <ProductComponent productdetails={product} />
+            <ProductComponent
+              productdetails={product}
+              deleteAProductFromParent={(id: number) => this.deleteAProduct(id)}
+            />
           ))}
         </div>
       </>

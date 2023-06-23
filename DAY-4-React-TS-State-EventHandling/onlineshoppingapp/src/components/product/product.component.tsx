@@ -3,6 +3,7 @@ import { ProductModel } from "../../models/product.model";
 
 type ProductProps = {
   productdetails: ProductModel;
+  deleteAProductFromParent: (productId: number) => void;
 };
 
 export class ProductComponent extends React.Component<ProductProps> {
@@ -45,6 +46,16 @@ export class ProductComponent extends React.Component<ProductProps> {
               {/* {this.props.productdetails.likes}{" "} */}
               {this.state.currLikes}
               <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+            </button>
+            <button
+              className="btn btn-outline-danger mx-1"
+              onClick={() =>
+                this.props.deleteAProductFromParent(
+                  this.props.productdetails.id,
+                )
+              }
+            >
+              <i className="fa-solid fa-trash"></i>
             </button>
           </div>
         </div>
