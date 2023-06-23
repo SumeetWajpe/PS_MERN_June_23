@@ -8,7 +8,7 @@ type ProductProps = {
 export class ProductComponent extends React.Component<ProductProps> {
   state = { currLikes: this.props.productdetails.likes };
   IncrementLikes() {
-    // props are readonly
+    // this.props.productdetails.likes++  // props are readonly (UI would not update)
     // change the state (to update the UI)
     // this.state.currLikes++; // state is immutable -> cant change original object & need to pass a new object
     this.setState({ currLikes: this.state.currLikes + 1 });

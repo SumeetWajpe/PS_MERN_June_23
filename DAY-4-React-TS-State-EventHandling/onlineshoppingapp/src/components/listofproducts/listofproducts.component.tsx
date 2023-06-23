@@ -1,6 +1,7 @@
 import React from "react";
 import { ProductModel } from "../../models/product.model";
 import { ProductComponent } from "../product/product.component";
+import { NewProduct } from "../newproduct/newproduct.component";
 
 export class ListOfProducts extends React.Component {
   products: ProductModel[] = [
@@ -52,6 +53,7 @@ export class ListOfProducts extends React.Component {
   render(): React.ReactNode {
     return (
       <>
+        <NewProduct />
         <h1> List Of Products</h1>
         <div className="row">
           {this.products.map((product: ProductModel) => (
