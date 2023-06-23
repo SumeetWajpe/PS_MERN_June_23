@@ -11,7 +11,7 @@ export class ListOfProducts extends React.Component {
       rating: 5,
       likes: 200,
       imageUrl:
-        "https://m.media-amazon.com/images/I/61bX2AoGj2L._AC_UF1000,1000_QL80_.jpg",
+        "https://photos5.appleinsider.com/gallery/45240-88149-The-new-MacBook-Pro-16-inch-xl.jpg",
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ export class ListOfProducts extends React.Component {
       rating: 4,
       likes: 500,
       imageUrl:
-        "https://i.gadgets360cdn.com/products/cameras/large/1548234910_832_nikon_d7200-24-2mp-dslr-camera.jpg",
+        "https://i0.wp.com/dailylearn.com/wp-content/uploads/2023/01/How-to-Shoot-Video-on-Your-Nikon-d7200.jpg",
     },
     {
       id: 3,
@@ -28,14 +28,14 @@ export class ListOfProducts extends React.Component {
       price: 20000,
       rating: 5,
       likes: 300,
-      imageUrl: "https://m.media-amazon.com/images/I/41b7-Rh1J+L.jpg",
+      imageUrl: "https://cdn.mos.cms.futurecdn.net/Eio3uWyghbtMGVDzXBWn8T.jpg",
     },
   ];
   render(): React.ReactNode {
     return (
       <div className="row">
         {this.products.map((product: ProductModel) => (
-          <ProductComponent productdetails={product}  />
+          <ProductComponent productdetails={product} />
         ))}
       </div>
     );
