@@ -3,8 +3,12 @@ import { ProductModel } from "../../models/product.model";
 import { ProductComponent } from "../product/product.component";
 import { NewProduct } from "../newproduct/newproduct.component";
 
-export class ListOfProducts extends React.Component {
-  state = {
+type ListOfProductsState = {
+  products: ProductModel[];
+};
+
+export class ListOfProducts extends React.Component<{}, ListOfProductsState> {
+  state: Readonly<ListOfProductsState> = {
     products: [
       {
         id: 1,
