@@ -6,9 +6,12 @@ type ProductProps = {
 };
 
 export class ProductComponent extends React.Component<ProductProps> {
+  state = { currLikes: this.props.productdetails.likes };
   IncrementLikes() {
-    console.log("You clicked !");
-    console.log(this);
+    // props are readonly
+    // change the state (to update the UI)
+    // this.state.currLikes++; // state is immutable -> cant change original object & need to pass a new object
+    this.setState({ currLikes: this.state.currLikes + 1 });
   }
   render(): React.ReactNode {
     let ratings: React.ReactNode[] = [];
@@ -39,7 +42,8 @@ export class ProductComponent extends React.Component<ProductProps> {
               className="btn btn-outline-primary"
               onClick={() => this.IncrementLikes()}
             >
-              {this.props.productdetails.likes}{" "}
+              {/* {this.props.productdetails.likes}{" "} */}
+              {this.state.currLikes}
               <i className="fa fa-thumbs-up" aria-hidden="true"></i>
             </button>
           </div>
