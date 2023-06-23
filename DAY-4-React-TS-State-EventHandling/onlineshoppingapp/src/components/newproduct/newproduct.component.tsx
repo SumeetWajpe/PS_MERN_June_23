@@ -1,6 +1,7 @@
 import React from "react";
 
 export class NewProduct extends React.Component {
+  state = { title: "" };
   render(): React.ReactNode {
     return (
       <div>
@@ -20,7 +21,14 @@ export class NewProduct extends React.Component {
                 <label htmlFor="txtProductTitle">Title : </label>
               </div>
               <div className="col-md-4">
-                <input type="text" id="txtProductTitle" />
+                <input
+                  type="text"
+                  id="txtProductTitle"
+                  onChange={e => {
+                    console.log(e.target.value);
+                    this.setState({ title: e.target.value });
+                  }}
+                />
               </div>
             </div>
             <div className="row my-1">
