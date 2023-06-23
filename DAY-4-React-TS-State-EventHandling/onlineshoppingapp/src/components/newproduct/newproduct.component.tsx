@@ -1,19 +1,35 @@
 import React from "react";
+import { ProductModel } from "../../models/product.model";
 
-export class NewProduct extends React.Component {
-  state = { title: "" };
+type NewProductProps = {
+  addNewProduct: (newProduct: ProductModel) => void;
+};
+
+export class NewProduct extends React.Component<NewProductProps> {
+  state = { id: 0, title: "", price: 0, likes: 0, rating: 0, imageUrl: "" };
   render(): React.ReactNode {
     return (
       <div>
         <h1>New Product</h1>
         <div className="d-flex justify-content-center align-items-center">
-          <form>
+          <form
+            onSubmit={e => {
+              e.preventDefault(); // prevent the browser from reloading the page
+              this.props.addNewProduct(this.state);
+            }}
+          >
             <div className="row my-1">
               <div className="col-md-4">
                 <label htmlFor="txtProductId">Id : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductId" />
+                <input
+                  type="number"
+                  id="txtProductId"
+                  onChange={
+                    e => this.setState({ id: parseInt(e.target.value) }) // converts string to number
+                  }
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -25,7 +41,6 @@ export class NewProduct extends React.Component {
                   type="text"
                   id="txtProductTitle"
                   onChange={e => {
-                    console.log(e.target.value);
                     this.setState({ title: e.target.value });
                   }}
                 />
@@ -36,7 +51,13 @@ export class NewProduct extends React.Component {
                 <label htmlFor="txtProductPrice">Price : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductPrice" />
+                <input
+                  type="number"
+                  id="txtProductPrice"
+                  onChange={e => {
+                    this.setState({ price: parseInt(e.target.value) });
+                  }}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -44,7 +65,13 @@ export class NewProduct extends React.Component {
                 <label htmlFor="txtProductRating">Rating : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductRating" />
+                <input
+                  type="number"
+                  id="txtProductRating"
+                  onChange={e => {
+                    this.setState({ rating: parseInt(e.target.value) });
+                  }}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -52,7 +79,13 @@ export class NewProduct extends React.Component {
                 <label htmlFor="txtProductLikes">Likes : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductLikes" />
+                <input
+                  type="number"
+                  id="txtProductLikes"
+                  onChange={e => {
+                    this.setState({ likes: parseInt(e.target.value) });
+                  }}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -60,7 +93,13 @@ export class NewProduct extends React.Component {
                 <label htmlFor="txtProductImageUrl">Image : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductImageUrl" />
+                <input
+                  type="text"
+                  id="txtProductImageUrl"
+                  onChange={e => {
+                    this.setState({ imageUrl: e.target.value });
+                  }}
+                />
               </div>
             </div>
             <div className="row">

@@ -50,10 +50,19 @@ export class ListOfProducts extends React.Component {
         "https://www.camocoat.in/wp-content/uploads/2018/09/200-500-mm-f5.6E-ED-VR-for-AF-S-NIKKOR-MWG-H-scaled.jpg",
     },
   ];
+
+  addNewProduct(newProductToBeAdded: ProductModel): void {
+    console.log("Add a new product here");
+    console.log(newProductToBeAdded);
+  }
   render(): React.ReactNode {
     return (
       <>
-        <NewProduct />
+        <NewProduct
+          addNewProduct={(newProduct: ProductModel) =>
+            this.addNewProduct(newProduct)
+          }
+        />
         <h1> List Of Products</h1>
         <div className="row">
           {this.products.map((product: ProductModel) => (
