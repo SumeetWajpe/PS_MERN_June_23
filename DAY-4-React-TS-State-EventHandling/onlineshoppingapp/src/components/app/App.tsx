@@ -1,8 +1,9 @@
 import React from "react";
+import { ListOfProducts } from "../listofproducts/listofproducts.component";
 
 class App extends React.Component {
   render(): React.ReactNode {
-    return <h1>List of Products</h1>; // List of Products
+    return <ListOfProducts />; // List of Products
   }
 }
 export default App;
