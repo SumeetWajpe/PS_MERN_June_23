@@ -8,7 +8,7 @@ type ProductProps = {
 export class ProductComponent extends React.Component<ProductProps> {
   render(): React.ReactNode {
     return (
-      <div className="col-md-3">
+      <div className="col-md-3 my-1">
         <div className="card">
           <img
             src={this.props.productdetails.imageUrl}
@@ -18,9 +18,12 @@ export class ProductComponent extends React.Component<ProductProps> {
           />
           <div className="card-body">
             <h5 className="card-title">{this.props.productdetails.title}</h5>
-            <p className="card-text">{this.props.productdetails.price}</p>
-            <p className="card-text">{this.props.productdetails.rating}</p>
-            <p className="card-text">{this.props.productdetails.likes}</p>
+            <p className="card-text m-0">{this.props.productdetails.price}</p>
+            <p className="card-text m-0">{this.props.productdetails.rating}</p>
+            <button className="btn btn-outline-primary">
+              {this.props.productdetails.likes}{" "}
+              <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+            </button>
           </div>
         </div>
       </div>

@@ -30,14 +30,35 @@ export class ListOfProducts extends React.Component {
       likes: 300,
       imageUrl: "https://cdn.mos.cms.futurecdn.net/Eio3uWyghbtMGVDzXBWn8T.jpg",
     },
+    {
+      id: 4,
+      title: "DJI Mavic Pro ",
+      price: 300000,
+      rating: 4,
+      likes: 800,
+      imageUrl:
+        "https://i.pcmag.com/imagery/reviews/06N6X13HBTsCmSsZE18mhOC-16..v1569473679.jpg",
+    },
+    {
+      id: 5,
+      title: "Nikon 200-500 ",
+      price: 300000,
+      rating: 4,
+      likes: 800,
+      imageUrl:
+        "https://www.camocoat.in/wp-content/uploads/2018/09/200-500-mm-f5.6E-ED-VR-for-AF-S-NIKKOR-MWG-H-scaled.jpg",
+    },
   ];
   render(): React.ReactNode {
     return (
-      <div className="row">
-        {this.products.map((product: ProductModel) => (
-          <ProductComponent productdetails={product} />
-        ))}
-      </div>
+      <>
+        <h1> List Of Products</h1>
+        <div className="row">
+          {this.products.map((product: ProductModel) => (
+            <ProductComponent productdetails={product} />
+          ))}
+        </div>
+      </>
     );
   }
 }
