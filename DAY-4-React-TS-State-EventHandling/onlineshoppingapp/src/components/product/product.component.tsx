@@ -9,12 +9,14 @@ type ProductProps = {
 export class ProductComponent extends React.Component<ProductProps> {
   state = { currLikes: this.props.productdetails.likes };
   IncrementLikes() {
+    console.log("Within Increment Likes !");
     // this.props.productdetails.likes++  // props are readonly (UI would not update)
     // change the state (to update the UI)
     // this.state.currLikes++; // state is immutable -> cant change original object & need to pass a new object
     this.setState({ currLikes: this.state.currLikes + 1 });
   }
   render(): React.ReactNode {
+    console.log("Within Render - Product Component !");
     let ratings: React.ReactNode[] = [];
     for (let i = 0; i < this.props.productdetails.rating; i++) {
       ratings.push(
@@ -22,6 +24,7 @@ export class ProductComponent extends React.Component<ProductProps> {
           className="fa fa-star"
           style={{ color: "orange" }}
           aria-hidden="true"
+          key={i}
         ></i>,
       );
     }

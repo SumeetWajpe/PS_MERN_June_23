@@ -8,6 +8,7 @@ type NewProductProps = {
 export class NewProduct extends React.Component<NewProductProps> {
   state = { id: 0, title: "", price: 0, likes: 0, rating: 0, imageUrl: "" };
   render(): React.ReactNode {
+    console.log("Render - New Product !");
     return (
       <div>
         <h1>New Product</h1>

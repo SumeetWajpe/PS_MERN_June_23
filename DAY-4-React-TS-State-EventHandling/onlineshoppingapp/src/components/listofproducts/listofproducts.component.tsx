@@ -69,19 +69,21 @@ export class ListOfProducts extends React.Component<{}, ListOfProductsState> {
     });
   }
   render(): React.ReactNode {
+    console.log("Render - List Of Products !");
     return (
       <>
-        <NewProduct
+        {/* <NewProduct
           addNewProduct={(newProduct: ProductModel) =>
             this.addNewProduct(newProduct)
           }
-        />
+        /> */}
         <h1> List Of Products</h1>
         <div className="row">
           {this.state.products.map((product: ProductModel) => (
             <ProductComponent
               productdetails={product}
               deleteAProductFromParent={(id: number) => this.deleteAProduct(id)}
+              key={product.id}
             />
           ))}
         </div>
