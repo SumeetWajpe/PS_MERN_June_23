@@ -2,6 +2,8 @@ import { useState } from "react";
 
 export function Counter() {
   const [count, setMyCount] = useState(10);
+  const [age, setAge] = useState(18);
+
   return (
     <>
       <strong>Count : {count}</strong>
@@ -12,6 +14,10 @@ export function Counter() {
       >
         ++
       </button>
+      <hr />
+      <strong>Age : {age}</strong>
+
+      <button onClick={() => setAge(age + 1)}>Age++</button>
     </>
   );
 }
