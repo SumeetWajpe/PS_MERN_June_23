@@ -36,6 +36,11 @@ export default function Header() {
                 Posts
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/getpostbyid" className="nav-link">
+                Get Post By Id
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

@@ -8,6 +8,7 @@ import { NewProduct } from "../newproduct/newproduct.component";
 import Header from "../header/header.component";
 import ProductDetails from "../productdetails/productdetails.component";
 import PostDetails from "../postdetails/postdetails.component";
+import GetPostById from "../getpostbyid/getpostbyid.component";
 
 // export default function App() {
 //   return <ListOfProducts />;
@@ -23,6 +24,7 @@ const App: React.FC = function () {
         <Route path="/postdetails/:id" element={<PostDetails />} />
         <Route path="/newproduct" element={<NewProduct />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} />
+        <Route path="/getpostbyid" element={<GetPostById />} />
       </Routes>
     </BrowserRouter>
   );
