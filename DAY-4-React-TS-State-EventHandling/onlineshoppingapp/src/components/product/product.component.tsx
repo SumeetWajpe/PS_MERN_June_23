@@ -9,7 +9,35 @@ type ProductProps = {
 export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
   return (
     <>
-      <Rating numberofstars={props.productdetails.rating} color="blue" />
+      <div className="col-md-3 my-1">
+        <div className="card">
+          <img
+            src={props.productdetails.imageUrl}
+            className="card-img-top"
+            alt={props.productdetails.title}
+            height="150px"
+          />
+          <div className="card-body">
+            <h5 className="card-title m-0">{props.productdetails.title}</h5>
+            <p className="card-text m-0">
+              {" "}
+              <Rating
+                numberofstars={props.productdetails.rating}
+                color="darkorange"
+              />
+            </p>
+
+            <p className="card-text m-0">₹.{props.productdetails.price}</p>
+            <button className="btn btn-outline-primary">
+              {props.productdetails.likes} {/* {this.state.currLikes} */}
+              <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+            </button>
+            <button className="btn btn-outline-danger mx-1">
+              <i className="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
@@ -42,40 +70,40 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
 //       );
 //     }
 //     return (
-//       <div className="col-md-3 my-1">
-//         <div className="card">
-//           <img
-//             src={this.props.productdetails.imageUrl}
-//             className="card-img-top"
-//             alt={this.props.productdetails.title}
-//             height="150px"
-//           />
-//           <div className="card-body">
-//             <h5 className="card-title">{this.props.productdetails.title}</h5>
-//             <p className="card-text m-0">{ratings}</p>
+// <div className="col-md-3 my-1">
+//   <div className="card">
+//     <img
+//       src={this.props.productdetails.imageUrl}
+//       className="card-img-top"
+//       alt={this.props.productdetails.title}
+//       height="150px"
+//     />
+//     <div className="card-body">
+//       <h5 className="card-title">{this.props.productdetails.title}</h5>
+//       <p className="card-text m-0">{ratings}</p>
 
-//             <p className="card-text m-0">₹.{this.props.productdetails.price}</p>
-//             <button
-//               className="btn btn-outline-primary"
-//               onClick={() => this.IncrementLikes()}
-//             >
-//               {/* {this.props.productdetails.likes}{" "} */}
-//               {this.state.currLikes}
-//               <i className="fa fa-thumbs-up" aria-hidden="true"></i>
-//             </button>
-//             <button
-//               className="btn btn-outline-danger mx-1"
-//               onClick={() =>
-//                 this.props.deleteAProductFromParent(
-//                   this.props.productdetails.id,
-//                 )
-//               }
-//             >
-//               <i className="fa-solid fa-trash"></i>
-//             </button>
-//           </div>
-//         </div>
-//       </div>
+//       <p className="card-text m-0">₹.{this.props.productdetails.price}</p>
+//       <button
+//         className="btn btn-outline-primary"
+//         onClick={() => this.IncrementLikes()}
+//       >
+//         {/* {this.props.productdetails.likes}{" "} */}
+//         {this.state.currLikes}
+//         <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+//       </button>
+//       <button
+//         className="btn btn-outline-danger mx-1"
+//         onClick={() =>
+//           this.props.deleteAProductFromParent(
+//             this.props.productdetails.id,
+//           )
+//         }
+//       >
+//         <i className="fa-solid fa-trash"></i>
+//       </button>
+//     </div>
+//   </div>
+// </div>
 //     );
 //   }
 // }
