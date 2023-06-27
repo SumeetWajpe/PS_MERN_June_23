@@ -25,6 +25,12 @@ const App: React.FC = function () {
         <Route path="/newproduct" element={<NewProduct />} />
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/getpostbyid" element={<GetPostById />} />
+        <Route
+          path="*"
+          element={
+            <img src="https://media.licdn.com/dms/image/C5612AQEPYce5KpNLyg/article-cover_image-shrink_720_1280/0/1551659700811?e=2147483647&v=beta&t=O9mBMiF-V12jCRJwaBNDWLKNL8cku2QSoCXtKP3vCHg" />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
