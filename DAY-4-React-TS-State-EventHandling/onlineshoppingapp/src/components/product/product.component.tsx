@@ -1,6 +1,7 @@
 import React, { FC, useState } from "react";
 import { ProductModel } from "../../models/product.model";
 import { Rating } from "../rating/rating.component";
+import { Link } from "react-router-dom";
 
 type ProductProps = {
   productdetails: ProductModel;
@@ -12,12 +13,14 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
     <>
       <div className="col-md-3 my-1">
         <div className="card">
-          <img
-            src={props.productdetails.imageUrl}
-            className="card-img-top"
-            alt={props.productdetails.title}
-            height="150px"
-          />
+          <Link to={`/productdetails/${props.productdetails.id}`}>
+            <img
+              src={props.productdetails.imageUrl}
+              className="card-img-top"
+              alt={props.productdetails.title}
+              height="150px"
+            />
+          </Link>
           <div className="card-body">
             <h5 className="card-title m-0">{props.productdetails.title}</h5>
             <p className="card-text m-0">

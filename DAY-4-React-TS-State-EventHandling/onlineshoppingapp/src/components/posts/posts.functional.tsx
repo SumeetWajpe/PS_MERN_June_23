@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { PostModel } from "../../models/post.model";
+import { Link } from "react-router-dom";
 
 type PostsState = {
   posts: PostModel[];
@@ -17,9 +18,11 @@ export function Posts() {
     <>
       <header>
         <h1>Posts</h1>
-        <ul>
+        <ul className="list-group">
           {postsData.posts.map(post => (
-            <li key={post.id}>{post.title}</li>
+            <li className="list-group-item" key={post.id}>
+              <Link to={"/postdetails/" + post.id}> {post.title} </Link>
+            </li>
           ))}
         </ul>
       </header>
