@@ -2,7 +2,7 @@ import React from "react";
 import { ProductModel } from "../../models/product.model";
 
 type NewProductProps = {
-  addNewProduct: (newProduct: ProductModel) => void;
+  addNewProduct?: (newProduct: ProductModel) => void;
 };
 
 export class NewProduct extends React.Component<NewProductProps> {
@@ -16,7 +16,6 @@ export class NewProduct extends React.Component<NewProductProps> {
           <form
             onSubmit={e => {
               e.preventDefault(); // prevent the browser from reloading the page
-              this.props.addNewProduct(this.state);
             }}
           >
             <div className="row my-1">
