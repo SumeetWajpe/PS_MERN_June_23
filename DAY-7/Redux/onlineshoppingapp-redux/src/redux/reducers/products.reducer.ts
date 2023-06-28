@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { ProductModel } from "../../models/product.model";
 
 let initialState: ProductModel[] = [
@@ -72,8 +72,11 @@ export const productsSlice = createSlice({
   name: "products",
   initialState,
   reducers: {
-    incrementLikes: (store, action) => {
+    incrementLikes: (store, action: PayloadAction<number>) => {
+      console.log("Within Products Reducer !");
       // change biz logic
+      let index = store.findIndex(product => product.id === action.payload);
+      store[index].likes++; // Immer library
       return store;
     },
   },

@@ -1,12 +1,15 @@
 import React, { FC, useState } from "react";
 import { ProductModel } from "../../models/product.model";
 import { Rating } from "../rating/rating.component";
+import { useDispatch } from "react-redux";
+import { incrementLikes } from "../../redux/reducers/products.reducer";
 
 type ProductProps = {
   productdetails: ProductModel;
 };
 
 export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
+  let dispatch = useDispatch();
   return (
     <>
       <div className="col-md-3 my-1">
@@ -30,7 +33,10 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
             </p>
 
             <p className="card-text m-0">₹.{props.productdetails.price}</p>
-            <button className="btn btn-outline-primary">
+            <button
+              className="btn btn-outline-primary"
+              onClick={() => dispatch(incrementLikes(props.productdetails.id))}
+            >
               {props.productdetails.likes}
               <i className="fa fa-thumbs-up" aria-hidden="true"></i>
             </button>

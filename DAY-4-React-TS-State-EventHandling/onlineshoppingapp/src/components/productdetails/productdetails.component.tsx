@@ -32,6 +32,8 @@ export default function ProductDetails() {
             <h2>{theProduct.title}</h2>
             <Rating numberofstars={theProduct.rating} color="darkorange" />
             <p className="card-text">₹.{theProduct.price}</p>
+            <p className="card-text">{theProduct.likes}</p>
+
             <div>{theProduct.description}</div>
           </div>
         </div>
