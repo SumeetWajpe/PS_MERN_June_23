@@ -41,6 +41,11 @@ export default function Header() {
                 Get Post By Id
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/message" className="nav-link">
+                Message
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

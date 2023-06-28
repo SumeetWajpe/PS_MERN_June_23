@@ -10,6 +10,7 @@ import ProductDetails from "../productdetails/productdetails.component";
 import PostDetails from "../postdetails/postdetails.component";
 import GetPostById from "../getpostbyid/getpostbyid.component";
 import { NewProductWithReactHookForm } from "../newproduct/newproductwithreacthookform";
+import InputMsg from "../changemessage/inputmsg";
 
 // export default function App() {
 //   return <ListOfProducts />;
@@ -28,6 +29,8 @@ const App: React.FC = function () {
 
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/getpostbyid" element={<GetPostById />} />
+        <Route path="/message" element={<InputMsg />} />
+
         <Route
           path="*"
           element={
