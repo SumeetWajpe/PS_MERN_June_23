@@ -9,6 +9,7 @@ import Header from "../header/header.component";
 import ProductDetails from "../productdetails/productdetails.component";
 import PostDetails from "../postdetails/postdetails.component";
 import GetPostById from "../getpostbyid/getpostbyid.component";
+import { NewProductWithReactHookForm } from "../newproduct/newproductwithreacthookform";
 
 // export default function App() {
 //   return <ListOfProducts />;
@@ -22,7 +23,9 @@ const App: React.FC = function () {
         <Route path="/" element={<ListOfProducts />} />
         <Route path="/posts" element={<Posts />} />
         <Route path="/postdetails/:id" element={<PostDetails />} />
-        <Route path="/newproduct" element={<NewProduct />} />
+        {/* <Route path="/newproduct" element={<NewProduct />} /> */}
+        <Route path="/newproduct" element={<NewProductWithReactHookForm />} />
+
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/getpostbyid" element={<GetPostById />} />
         <Route

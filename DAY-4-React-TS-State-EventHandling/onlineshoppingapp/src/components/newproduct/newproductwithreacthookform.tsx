@@ -1,4 +1,17 @@
+import { useForm } from "react-hook-form";
+
+type ProductInput = {
+  ProductId: number;
+  ProductTitle: string;
+  ProductPrice: number;
+  ProductRating: number;
+  ProductLikes: number;
+  ProductImageUrl: string;
+  ProductDescription: string;
+};
+
 export const NewProductWithReactHookForm: React.FC = () => {
+  const { register } = useForm<ProductInput>();
   return (
     <>
       <div>
@@ -14,7 +27,11 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <label htmlFor="txtProductId">Id : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductId" />
+                <input
+                  type="number"
+                  id="txtProductId"
+                  {...register("ProductId")}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -22,7 +39,11 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <label htmlFor="txtProductTitle">Title : </label>
               </div>
               <div className="col-md-4">
-                <input type="text" id="txtProductTitle" />
+                <input
+                  type="text"
+                  id="txtProductTitle"
+                  {...register("ProductTitle")}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -30,7 +51,11 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <label htmlFor="txtProductPrice">Price : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductPrice" />
+                <input
+                  type="number"
+                  id="txtProductPrice"
+                  {...register("ProductPrice")}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -38,7 +63,11 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <label htmlFor="txtProductRating">Rating : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductRating" />
+                <input
+                  type="number"
+                  id="txtProductRating"
+                  {...register("ProductRating")}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -46,7 +75,11 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <label htmlFor="txtProductLikes">Likes : </label>
               </div>
               <div className="col-md-4">
-                <input type="number" id="txtProductLikes" />
+                <input
+                  type="number"
+                  id="txtProductLikes"
+                  {...register("ProductLikes")}
+                />
               </div>
             </div>
             <div className="row my-1">
@@ -54,7 +87,30 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <label htmlFor="txtProductImageUrl">Image : </label>
               </div>
               <div className="col-md-4">
-                <input type="text" id="txtProductImageUrl" />
+                <input
+                  type="text"
+                  id="txtProductImageUrl"
+                  {...register("ProductImageUrl")}
+                />
+              </div>
+            </div>
+            <div className="row my-1">
+              <div className="col-md-4">
+                <label htmlFor="txtProductDescription">Description : </label>
+              </div>
+              <div className="col-md-4">
+                {/* <input
+                  type="text"
+                  id="txtProductDescription"
+                  {...register("ProductDescription")}
+                /> */}
+
+                <textarea
+                  id=""
+                  cols={30}
+                  rows={5}
+                  {...register("ProductDescription")}
+                ></textarea>
               </div>
             </div>
             <div className="row">
