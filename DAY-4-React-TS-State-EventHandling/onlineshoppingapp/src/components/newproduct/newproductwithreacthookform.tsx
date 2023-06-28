@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { ProductModel } from "../../models/product.model";
+import { useNavigate } from "react-router-dom";
 
 type ProductInput = {
   ProductId: number;
@@ -11,6 +13,7 @@ type ProductInput = {
 };
 
 export const NewProductWithReactHookForm: React.FC = () => {
+  let navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,7 +25,28 @@ export const NewProductWithReactHookForm: React.FC = () => {
         <h1>New Product</h1>
         <div className="d-flex justify-content-center align-items-center">
           <form
-            onSubmit={handleSubmit((data: ProductInput) => console.log(data))}
+            onSubmit={handleSubmit((data: ProductInput) => {
+              let newProduct: ProductModel = new ProductModel(
+                +data.ProductId,
+                data.ProductTitle,
+                +data.ProductPrice,
+                +data.ProductLikes,
+                +data.ProductRating,
+                data.ProductImageUrl,
+                data.ProductDescription,
+              );
+              fetch("http://localhost:3005/products", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(newProduct),
+              })
+                .then(res => res.json())
+                .then(product => {
+                  if (product) {
+                    navigate("/");
+                  }
+                });
+            })}
           >
             <div className="row my-1">
               <div className="col-md-4">
@@ -47,10 +71,22 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <input
                   type="text"
                   id="txtProductTitle"
-                  {...register("ProductTitle", { required: true })}
+                  placeholder="Max 20 chars"
+                  {...register("ProductTitle", {
+                    required: true,
+                    maxLength: {
+                      value: 20,
+                      message: "You exceeded 20 char limit !",
+                    },
+                  })}
                 />
                 {errors.ProductTitle && (
-                  <p style={{ color: "red" }}> Title required !</p>
+                  <p style={{ color: "red" }}>
+                    {" "}
+                    {errors.ProductTitle.type === "maxLength"
+                      ? errors.ProductTitle.message
+                      : "Title required !"}
+                  </p>
                 )}
               </div>
             </div>
