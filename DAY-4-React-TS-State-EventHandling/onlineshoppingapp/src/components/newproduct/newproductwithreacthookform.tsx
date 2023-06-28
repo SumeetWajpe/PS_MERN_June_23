@@ -11,16 +11,18 @@ type ProductInput = {
 };
 
 export const NewProductWithReactHookForm: React.FC = () => {
-  const { register } = useForm<ProductInput>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ProductInput>({ mode: "onChange" });
   return (
     <>
       <div>
         <h1>New Product</h1>
         <div className="d-flex justify-content-center align-items-center">
           <form
-            onSubmit={e => {
-              e.preventDefault(); // prevent the browser from reloading the page
-            }}
+            onSubmit={handleSubmit((data: ProductInput) => console.log(data))}
           >
             <div className="row my-1">
               <div className="col-md-4">
@@ -30,8 +32,11 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <input
                   type="number"
                   id="txtProductId"
-                  {...register("ProductId")}
+                  {...register("ProductId", { required: true })}
                 />
+                {errors.ProductId && (
+                  <p style={{ color: "red" }}> Id required !</p>
+                )}
               </div>
             </div>
             <div className="row my-1">
@@ -42,8 +47,11 @@ export const NewProductWithReactHookForm: React.FC = () => {
                 <input
                   type="text"
                   id="txtProductTitle"
-                  {...register("ProductTitle")}
+                  {...register("ProductTitle", { required: true })}
                 />
+                {errors.ProductTitle && (
+                  <p style={{ color: "red" }}> Title required !</p>
+                )}
               </div>
             </div>
             <div className="row my-1">
