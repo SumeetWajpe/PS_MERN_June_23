@@ -27,7 +27,7 @@ export default function ProductDetails() {
       </div>
       <div className="col-md-3 border-start">
         {/* <h2>{theProduct.title}</h2> */}
-        <Title>
+        <Title color="purple">
           <h2>{theProduct.title}</h2>
         </Title>
         <Rating numberofstars={theProduct.rating} color="darkorange" />
