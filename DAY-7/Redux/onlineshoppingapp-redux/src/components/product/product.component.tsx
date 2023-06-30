@@ -7,6 +7,7 @@ import {
   incrementLikes,
 } from "../../redux/reducers/products.reducer";
 import { addProductToCart } from "../../redux/reducers/cart.reducer";
+import { Title } from "../atoms/title/title.component";
 
 type ProductProps = {
   productdetails: ProductModel;
@@ -27,7 +28,8 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
           />
           {/* </Link> */}
           <div className="card-body">
-            <h5 className="card-title m-0">{props.productdetails.title}</h5>
+            {/* <h5 className="card-title m-0">{props.productdetails.title}</h5> */}
+            <Title title={props.productdetails.title} />
             <p className="card-text m-0">
               {" "}
               <Rating
