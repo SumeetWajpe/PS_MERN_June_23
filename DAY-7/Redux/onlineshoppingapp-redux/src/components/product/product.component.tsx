@@ -8,6 +8,7 @@ import {
 } from "../../redux/reducers/products.reducer";
 import { addProductToCart } from "../../redux/reducers/cart.reducer";
 import { Title } from "../atoms/title/title.component";
+import { Link } from "react-router-dom";
 
 type ProductProps = {
   productdetails: ProductModel;
@@ -19,14 +20,14 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
     <>
       <div className="col-md-3 my-1">
         <div className="card">
-          {/* <Link to={`/productdetails/${props.productdetails.id}`}> */}
-          <img
-            src={props.productdetails.imageUrl}
-            className="card-img-top"
-            alt={props.productdetails.title}
-            height="150px"
-          />
-          {/* </Link> */}
+          <Link to={`/productdetails/${props.productdetails.id}`}>
+            <img
+              src={props.productdetails.imageUrl}
+              className="card-img-top"
+              alt={props.productdetails.title}
+              height="150px"
+            />
+          </Link>
           <div className="card-body">
             {/* <h5 className="card-title m-0">{props.productdetails.title}</h5> */}
             <Title title={props.productdetails.title} />

@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ListOfProducts } from "../listofproducts/listofproducts.component";
 import Header from "../header/header.component";
 import { NewProduct } from "../newproduct/newproductwithreacthookform";
+import ProductDetails from "../productdetails/productdetails.component";
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
         <Route path="/postdetails/:id" element={<PostDetails />} /> */}
         <Route path="/newproduct" element={<NewProduct />} />
 
-        {/* <Route path="/productdetails/:id" element={<ProductDetails />} /> */}
+        <Route path="/productdetails/:id" element={<ProductDetails />} />
 
         <Route
           path="*"

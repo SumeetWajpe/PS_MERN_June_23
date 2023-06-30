@@ -4,9 +4,5 @@ type TitleProps = {
   title: string;
 };
 export const Title: FC<TitleProps> = (props: TitleProps) => {
-  return (
-    <>
-      <h5>{props.title}</h5>
-    </>
-  );
+  return <h5>{props.title}</h5>;
 };
