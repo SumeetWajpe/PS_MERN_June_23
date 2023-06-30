@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC } from "react";
 import { ProductModel } from "../../models/product.model";
 import { ProductComponent } from "../product/product.component";
 import { useSelector } from "react-redux";

@@ -73,7 +73,7 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     incrementLikes: (store, action: PayloadAction<number>) => {
-      console.log(action);
+      // console.log(action);
       // console.log("Within Products Reducer !");
       let id = action.payload;
       // change biz logic
@@ -85,8 +85,13 @@ export const productsSlice = createSlice({
       let id = action.payload; // passed from the UI
       return store.filter((product: ProductModel) => product.id !== id);
     },
+    addNewProduct: (store, action: PayloadAction<ProductModel>) => {
+      store.push(action.payload);
+      return store;
+    },
   },
 });
 
-export const { incrementLikes, deleteProduct } = productsSlice.actions;
+export const { incrementLikes, deleteProduct, addNewProduct } =
+  productsSlice.actions;
 export default productsSlice.reducer;

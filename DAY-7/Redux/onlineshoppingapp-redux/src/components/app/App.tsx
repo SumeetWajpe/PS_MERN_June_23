@@ -1,15 +1,32 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import { AppState } from "../../redux/store/store";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import { ListOfProducts } from "../listofproducts/listofproducts.component";
-import ProductWithLikes from "../productswithlikes/productswithlikes";
+import Header from "../header/header.component";
+import { NewProduct } from "../newproduct/newproductwithreacthookform";
 
 function App() {
-  // const products = useSelector((store: AppState) => store.products);
   return (
-    <div>
-      <ListOfProducts />
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<ListOfProducts />} />
+        {/* <Route path="/posts" element={<Posts />} />
+        <Route path="/postdetails/:id" element={<PostDetails />} /> */}
+        <Route path="/newproduct" element={<NewProduct />} />
+
+        {/* <Route path="/productdetails/:id" element={<ProductDetails />} /> */}
+
+        <Route
+          path="*"
+          element={
+            <img
+              src="https://media.licdn.com/dms/image/C5612AQEPYce5KpNLyg/article-cover_image-shrink_720_1280/0/1551659700811?e=2147483647&v=beta&t=O9mBMiF-V12jCRJwaBNDWLKNL8cku2QSoCXtKP3vCHg"
+              alt="Resource Not Found"
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

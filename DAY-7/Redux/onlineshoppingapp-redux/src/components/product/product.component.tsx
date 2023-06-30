@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC } from "react";
 import { ProductModel } from "../../models/product.model";
 import { Rating } from "../rating/rating.component";
 import { useDispatch } from "react-redux";
@@ -6,7 +6,7 @@ import {
   deleteProduct,
   incrementLikes,
 } from "../../redux/reducers/products.reducer";
-import { deletePost } from "../../redux/reducers/posts.reducer";
+import { addProductToCart } from "../../redux/reducers/cart.reducer";
 
 type ProductProps = {
   productdetails: ProductModel;
@@ -37,25 +37,46 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
             </p>
 
             <p className="card-text m-0">₹.{props.productdetails.price}</p>
-            <button
-              className="btn btn-outline-primary"
-              onClick={() => dispatch(incrementLikes(props.productdetails.id))}
-              // onClick={() =>
-              //   dispatch({
-              //     type: "products/incrementLikes",
-              //     payload: props.productdetails.id,
-              //   })
-              // }
-            >
-              {props.productdetails.likes}
-              <i className="fa fa-thumbs-up" aria-hidden="true"></i>
-            </button>
-            <button
-              className="btn btn-outline-danger mx-1"
-              onClick={() => dispatch(deleteProduct(props.productdetails.id))}
-            >
-              <i className="fa-solid fa-trash"></i>
-            </button>
+            <div className="d-flex align-items-center">
+              <button
+                className="btn btn-outline-primary"
+                onClick={() =>
+                  dispatch(incrementLikes(props.productdetails.id))
+                }
+                // onClick={() =>
+                //   dispatch({
+                //     type: "products/incrementLikes",
+                //     payload: props.productdetails.id,
+                //   })
+                // }
+              >
+                {props.productdetails.likes}
+                <i className="fa fa-thumbs-up" aria-hidden="true"></i>
+              </button>
+              <button
+                className="btn btn-outline-danger mx-1"
+                onClick={() => dispatch(deleteProduct(props.productdetails.id))}
+              >
+                <i className="fa-solid fa-trash"></i>
+              </button>
+              <div className="form-check">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="flexCheckDefault"
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                    if (e.target.checked) {
+                      dispatch(addProductToCart(props.productdetails));
+                    } else {
+                    }
+                  }}
+                />
+                <label className="form-check-label" htmlFor="flexCheckDefault">
+                  Add to cart
+                </label>
+              </div>
+            </div>
           </div>
         </div>
       </div>
