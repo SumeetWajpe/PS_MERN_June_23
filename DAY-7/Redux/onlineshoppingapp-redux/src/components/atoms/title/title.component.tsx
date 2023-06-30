@@ -1,8 +1,9 @@
 import { FC } from "react";
 
 type TitleProps = {
-  title: string;
+//   title: string;
+  children: any;
 };
 export const Title: FC<TitleProps> = (props: TitleProps) => {
-  return <h5>{props.title}</h5>;
+  return <>{props.children}</>;
 };

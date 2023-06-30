@@ -30,7 +30,9 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
           </Link>
           <div className="card-body">
             {/* <h5 className="card-title m-0">{props.productdetails.title}</h5> */}
-            <Title title={props.productdetails.title} />
+            <Title>
+              <h5>{props.productdetails.title}</h5>
+            </Title>
             <p className="card-text m-0">
               {" "}
               <Rating

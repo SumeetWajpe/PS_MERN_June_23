@@ -15,29 +15,27 @@ export default function ProductDetails() {
     setTheProduct(p as ProductModel);
   }, []);
   return (
-    <div>
-      <main>
-        <div className="row">
-          <div className="col-md-9">
-            <img
-              src={theProduct.imageUrl}
-              className="card-img-top"
-              alt={theProduct.title}
-              height="100%"
-              width="100%"
-            />
-          </div>
-          <div className="col-md-3 border-start">
-            {/* <h2>{theProduct.title}</h2> */}
-            <Title title={theProduct.title} />
-            <Rating numberofstars={theProduct.rating} color="darkorange" />
-            <p className="card-text">₹.{theProduct.price}</p>
-            <p className="card-text">{theProduct.likes}</p>
+    <main className="row my-2">
+      <div className="col-md-9">
+        <img
+          src={theProduct.imageUrl}
+          className="card-img-top"
+          alt={theProduct.title}
+          height="100%"
+          width="100%"
+        />
+      </div>
+      <div className="col-md-3 border-start">
+        {/* <h2>{theProduct.title}</h2> */}
+        <Title>
+          <h2>{theProduct.title}</h2>
+        </Title>
+        <Rating numberofstars={theProduct.rating} color="darkorange" />
+        <p className="card-text">₹.{theProduct.price}</p>
+        <p className="card-text">{theProduct.likes}</p>
 
-            <div>{theProduct.description}</div>
-          </div>
-        </div>
-      </main>
-    </div>
+        <div>{theProduct.description}</div>
+      </div>
+    </main>
   );
 }
