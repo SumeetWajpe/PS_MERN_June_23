@@ -1,10 +1,8 @@
 // 1st (preferred) using PropWithChildren
-import { PropsWithChildren } from "react";
-
+import React, { PropsWithChildren } from "react";
 type TitleProps = {
   color?: string;
 };
-
 export const Title = (props: PropsWithChildren<TitleProps>) => {
   return <div style={{ color: props.color }}>{props.children}</div>;
 };

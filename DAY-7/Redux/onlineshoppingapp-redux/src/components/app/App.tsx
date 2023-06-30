@@ -4,6 +4,7 @@ import { ListOfProducts } from "../listofproducts/listofproducts.component";
 import Header from "../header/header.component";
 import { NewProduct } from "../newproduct/newproductwithreacthookform";
 import ProductDetails from "../productdetails/productdetails.component";
+import { CartSummary } from "../page/cartsummary/cartsummary.component";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/newproduct" element={<NewProduct />} />
 
         <Route path="/productdetails/:id" element={<ProductDetails />} />
+        <Route path="/cartsummary" element={<CartSummary />} />
 
         <Route
           path="*"

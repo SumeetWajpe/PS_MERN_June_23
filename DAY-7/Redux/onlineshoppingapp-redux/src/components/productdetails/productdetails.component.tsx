@@ -28,7 +28,9 @@ export default function ProductDetails() {
       <div className="col-md-3 border-start">
         {/* <h2>{theProduct.title}</h2> */}
         <Title color="purple">
-          <h2>{theProduct.title}</h2>
+          <header>
+            <h2>{theProduct.title}</h2>
+          </header>
         </Title>
         <Rating numberofstars={theProduct.rating} color="darkorange" />
         <p className="card-text">₹.{theProduct.price}</p>
