@@ -7,6 +7,7 @@ export const postsSlice = createSlice({
   initialState,
   reducers: {
     deletePost: (store, action) => {
+      console.log(action);
       // change biz logic
       return store;
     },

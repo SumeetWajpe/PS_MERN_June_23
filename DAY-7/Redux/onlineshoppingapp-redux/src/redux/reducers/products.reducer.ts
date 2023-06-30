@@ -73,14 +73,20 @@ export const productsSlice = createSlice({
   initialState,
   reducers: {
     incrementLikes: (store, action: PayloadAction<number>) => {
-      console.log("Within Products Reducer !");
+      console.log(action);
+      // console.log("Within Products Reducer !");
+      let id = action.payload;
       // change biz logic
-      let index = store.findIndex(product => product.id === action.payload);
+      let index = store.findIndex(product => product.id === id);
       store[index].likes++; // Immer library
       return store;
+    },
+    deleteProduct: (store, action: PayloadAction<number>) => {
+      let id = action.payload; // passed from the UI
+      return store.filter((product: ProductModel) => product.id !== id);
     },
   },
 });
 
-export const { incrementLikes } = productsSlice.actions;
+export const { incrementLikes, deleteProduct } = productsSlice.actions;
 export default productsSlice.reducer;

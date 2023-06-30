@@ -8,7 +8,6 @@ function App() {
   // const products = useSelector((store: AppState) => store.products);
   return (
     <div>
-      <ProductWithLikes />
       <ListOfProducts />
     </div>
   );

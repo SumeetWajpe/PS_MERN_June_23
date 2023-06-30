@@ -2,7 +2,11 @@ import React, { FC, useState } from "react";
 import { ProductModel } from "../../models/product.model";
 import { Rating } from "../rating/rating.component";
 import { useDispatch } from "react-redux";
-import { incrementLikes } from "../../redux/reducers/products.reducer";
+import {
+  deleteProduct,
+  incrementLikes,
+} from "../../redux/reducers/products.reducer";
+import { deletePost } from "../../redux/reducers/posts.reducer";
 
 type ProductProps = {
   productdetails: ProductModel;
@@ -36,11 +40,20 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
             <button
               className="btn btn-outline-primary"
               onClick={() => dispatch(incrementLikes(props.productdetails.id))}
+              // onClick={() =>
+              //   dispatch({
+              //     type: "products/incrementLikes",
+              //     payload: props.productdetails.id,
+              //   })
+              // }
             >
               {props.productdetails.likes}
               <i className="fa fa-thumbs-up" aria-hidden="true"></i>
             </button>
-            <button className="btn btn-outline-danger mx-1">
+            <button
+              className="btn btn-outline-danger mx-1"
+              onClick={() => dispatch(deleteProduct(props.productdetails.id))}
+            >
               <i className="fa-solid fa-trash"></i>
             </button>
           </div>
