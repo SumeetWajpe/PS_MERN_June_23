@@ -24,9 +24,13 @@ export const productsSlice = createSlice({
       store.push(action.payload);
       return store;
     },
+    setAllProducts: (store, action: PayloadAction<ProductModel[]>) => {
+      store = action.payload;
+      return store;
+    },
   },
 });
 
-export const { incrementLikes, deleteProduct, addNewProduct } =
+export const { incrementLikes, deleteProduct, addNewProduct, setAllProducts } =
   productsSlice.actions;
 export default productsSlice.reducer;

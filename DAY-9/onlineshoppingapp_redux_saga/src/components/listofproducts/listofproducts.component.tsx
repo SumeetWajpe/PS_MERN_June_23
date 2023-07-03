@@ -3,23 +3,16 @@ import { ProductModel } from "../../models/product.model";
 import { ProductComponent } from "../product/product.component";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, AppState } from "../../redux/store/store";
-import {
-  ProductRequest,
-  getProductsAsync,
-} from "../../redux/reducers/products.reducer";
+import { SagaActions } from "../../saga/saga.actions";
 
 export const ListOfProducts: FC = () => {
-  const productRequest: ProductRequest = useSelector(
+  const products: ProductModel[] = useSelector(
     (store: AppState) => store.products,
   );
   let dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch(getProductsAsync());
+    dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
   }, []);
-
-  if (productRequest.error != "") {
-    return <h1 style={{ color: "red" }}>{productRequest.error}</h1>;
-  }
 
   return (
     <>
@@ -28,11 +21,9 @@ export const ListOfProducts: FC = () => {
       </header>
 
       <div className="row">
-        {productRequest?.loading
-          ? "Loading.."
-          : productRequest?.products?.map((product: ProductModel) => (
-              <ProductComponent productdetails={product} key={product.id} />
-            ))}
+        {products?.map((product: ProductModel) => (
+          <ProductComponent productdetails={product} key={product.id} />
+        ))}
       </div>
     </>
   );
