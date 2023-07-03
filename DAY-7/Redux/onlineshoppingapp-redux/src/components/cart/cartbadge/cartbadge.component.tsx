@@ -8,7 +8,10 @@ export const CartBadge: FC = () => {
   return (
     <div className="d-flex align-items-center">
       <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-      <span className="badge text-bg-warning mx-1">
+      <span
+        className="badge text-bg-warning mx-1"
+        style={{ textDecoration: "none" }}
+      >
         <Link to="/cartsummary">{cart.length}</Link>{" "}
       </span>
     </div>

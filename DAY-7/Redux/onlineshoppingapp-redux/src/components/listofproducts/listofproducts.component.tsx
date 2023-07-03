@@ -1,11 +1,21 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import { ProductModel } from "../../models/product.model";
 import { ProductComponent } from "../product/product.component";
-import { useSelector } from "react-redux";
-import { AppState } from "../../redux/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, AppState } from "../../redux/store/store";
+import {
+  ProductRequest,
+  getProductsAsync,
+} from "../../redux/reducers/products.reducer";
 
 export const ListOfProducts: FC = () => {
-  const products = useSelector((store: AppState) => store.products);
+  const productRequest: ProductRequest = useSelector(
+    (store: AppState) => store.products,
+  );
+  let dispatch = useDispatch<AppDispatch>();
+  useEffect(() => {
+    dispatch(getProductsAsync());
+  }, []);
 
   return (
     <>
@@ -14,9 +24,11 @@ export const ListOfProducts: FC = () => {
       </header>
 
       <div className="row">
-        {products.map((product: ProductModel) => (
-          <ProductComponent productdetails={product} key={product.id} />
-        ))}
+        {productRequest?.loading
+          ? "Loading.."
+          : productRequest?.products?.map((product: ProductModel) => (
+              <ProductComponent productdetails={product} key={product.id} />
+            ))}
       </div>
     </>
   );

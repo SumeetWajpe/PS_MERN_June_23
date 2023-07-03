@@ -9,7 +9,7 @@ import { Title } from "../atoms/title/title.component";
 export default function ProductDetails() {
   const { id = 0 } = useParams();
   const [theProduct, setTheProduct] = useState(new ProductModel());
-  let theProducts = useSelector((store: AppState) => store.products);
+  let theProducts = useSelector((store: AppState) => store.products.products);
   useEffect(() => {
     let p = theProducts.find((p: ProductModel) => p.id == id);
     setTheProduct(p as ProductModel);
