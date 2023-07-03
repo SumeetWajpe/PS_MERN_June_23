@@ -9,19 +9,21 @@ export type ProductRequest = {
 let initialState: ProductRequest = { error: "", loading: true, products: [] };
 
 // let initialState: ProductModel[] = [];
-
+type Error = {
+  message: string;
+};
 export const getProductsAsync = createAsyncThunk(
   "products/getProductAsync",
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
       let res = await fetch("http://localhost:3005/products");
       if (res.ok) {
         return res.json();
       } else {
-        throw new Error("Something went wrong !");
+        throw new Error("Something went wrong  - " + res.status + "!");
       }
-    } catch (error) {
-      //   Promise.reject("Something went wrong !");
+    } catch (error: any) {
+      return rejectWithValue(error.message);
     }
   },
 );
@@ -58,6 +60,16 @@ export const productsSlice = createSlice({
       store.loading = false;
       return store;
     });
+    builder.addCase(
+      getProductsAsync.rejected,
+      (store, { payload }: { payload: any }) => {
+        console.log(payload);
+        store.products = [];
+        store.loading = false;
+        store.error = payload;
+        return store;
+      },
+    );
   },
 });
 

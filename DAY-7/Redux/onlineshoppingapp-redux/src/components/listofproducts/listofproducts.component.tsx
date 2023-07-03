@@ -17,6 +17,10 @@ export const ListOfProducts: FC = () => {
     dispatch(getProductsAsync());
   }, []);
 
+  if (productRequest.error != "") {
+    return <h1 style={{ color: "red" }}>{productRequest.error}</h1>;
+  }
+
   return (
     <>
       <header>
