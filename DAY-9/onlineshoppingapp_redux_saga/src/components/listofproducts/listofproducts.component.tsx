@@ -10,16 +10,21 @@ export const ListOfProducts: FC = () => {
     (store: AppState) => store.products,
   );
   let dispatch = useDispatch<AppDispatch>();
-  useEffect(() => {
-    dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
-  }, []);
+  // useEffect(() => {
+  // }, []);
 
   return (
     <>
       <header>
         <h1> List Of Products</h1>
       </header>
-
+      <button
+        onClick={() => {
+          dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
+        }}
+      >
+        Get Products !
+      </button>
       <div className="row">
         {products?.map((product: ProductModel) => (
           <ProductComponent productdetails={product} key={product.id} />
