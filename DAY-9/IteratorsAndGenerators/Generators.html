@@ -7,11 +7,18 @@
     <script>
       function* SimpleGenerator() {
         console.log("Started..");
-        return 10;
+        let valueFromNext = yield 10; // paused the execution of SimpleGenerator & partially return 10 as value,done:false
+        console.log(valueFromNext);
+        console.log("After Yield");
+        yield 20;
+        console.log("Ended..");
+        return 100;
       }
 
       let itr = SimpleGenerator(); // Generators are function that return an iterator
       console.log(itr.next());
+      console.log("After First Call to next !");
+      console.log(itr.next(15));
     </script>
   </head>
   <body></body>
