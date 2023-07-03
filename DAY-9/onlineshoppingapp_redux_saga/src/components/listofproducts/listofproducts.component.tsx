@@ -10,8 +10,9 @@ export const ListOfProducts: FC = () => {
     (store: AppState) => store.products,
   );
   let dispatch = useDispatch<AppDispatch>();
-  // useEffect(() => {
-  // }, []);
+  useEffect(() => {
+    dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
+  }, []);
 
   return (
     <>
@@ -19,9 +20,10 @@ export const ListOfProducts: FC = () => {
         <h1> List Of Products</h1>
       </header>
       <button
-        onClick={() => {
-          dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
-        }}
+      // uncomment for retry effect
+      // onClick={() => {
+      //   dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
+      // }}
       >
         Get Products !
       </button>

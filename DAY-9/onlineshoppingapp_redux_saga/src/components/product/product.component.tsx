@@ -9,6 +9,7 @@ import {
 import { addProductToCart } from "../../redux/reducers/cart.reducer";
 import { Title } from "../atoms/title/title.component";
 import { Link } from "react-router-dom";
+import { SagaActions } from "../../saga/saga.actions";
 
 type ProductProps = {
   productdetails: ProductModel;
@@ -60,7 +61,12 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
               </button>
               <button
                 className="btn btn-outline-danger mx-1"
-                onClick={() => dispatch(deleteProduct(props.productdetails.id))}
+                onClick={() =>
+                  dispatch({
+                    type: SagaActions.DELETE_A_PRODUCT,
+                    payload: props.productdetails.id,
+                  })
+                }
               >
                 <i className="fa-solid fa-trash"></i>
               </button>
