@@ -11,3 +11,7 @@ describe("suites for App component", () => {
     expect(appInstance).toBeDefined();
   });
 });
+
+
+// npm i --save-dev enzyme enzyme-adapter-react-16 --force
+// npm i @types/enzyme-adapter-react-16 --force
