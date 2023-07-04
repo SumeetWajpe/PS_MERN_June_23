@@ -1,15 +1,6 @@
 {
   "products": [
     {
-      "id": 1,
-      "title": "Macbook Pro",
-      "price": 250000,
-      "rating": 5,
-      "likes": 200,
-      "imageUrl": "https://photos5.appleinsider.com/gallery/45240-88149-The-new-MacBook-Pro-16-inch-xl.jpg",
-      "description": "MacBook Pro. Our most powerful notebooks. Fast M1 processors, incredible graphics, and spectacular Retina displays. Now available in a 14-inch model.MacBook Pro. Our most powerful notebooks. Fast M1 processors, incredible graphics, and spectacular Retina displays. Now available in a 14-inch model."
-    },
-    {
       "id": 2,
       "title": "Nikon 7200",
       "price": 200000,

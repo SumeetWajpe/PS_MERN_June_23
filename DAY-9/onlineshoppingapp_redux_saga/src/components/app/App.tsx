@@ -1,19 +1,30 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { Suspense } from "react";
 
 import { ListOfProducts } from "../listofproducts/listofproducts.component";
 import Header from "../header/header.component";
 import { NewProduct } from "../newproduct/newproductwithreacthookform";
 import ProductDetails from "../productdetails/productdetails.component";
 import { CartSummary } from "../page/cartsummary/cartsummary.component";
+import PostDetails from "../postdetails/postdetails.component";
 
+//Code-Splitting/LazyLoading
+const Posts = React.lazy(() => import("../posts/posts"));
 function App() {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path="/" element={<ListOfProducts />} />
-        {/* <Route path="/posts" element={<Posts />} />
-        <Route path="/postdetails/:id" element={<PostDetails />} /> */}
+        <Route
+          path="/posts"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Posts />
+            </Suspense>
+          }
+        />
+        <Route path="/postdetails/:id" element={<PostDetails />} />
         <Route path="/newproduct" element={<NewProduct />} />
 
         <Route path="/productdetails/:id" element={<ProductDetails />} />
