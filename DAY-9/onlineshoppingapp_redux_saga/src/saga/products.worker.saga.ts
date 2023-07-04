@@ -30,7 +30,7 @@ export function* fetchProducts() {
     const response: AxiosResponse<ProductModel[]> = yield call(GetAllProducts); // calls GetAllProducts
 
     if (response.status == 200) {
-      yield put(setAllProducts(response.data)); // put - dispatch the
+      yield put(setAllProducts(response.data)); // put - dispatch the action (reducer with payload)
     }
   } catch (error) {
     console.log(error); // dipatch an action with error
