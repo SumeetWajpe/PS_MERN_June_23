@@ -37,6 +37,11 @@ export default function Header() {
                 Posts
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="/context" className="nav-link">
+                Context API
+              </Link>
+            </li>
           </ul>
         </div>
         <div className="d-flex ">

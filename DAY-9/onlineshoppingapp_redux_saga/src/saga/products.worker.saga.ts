@@ -9,7 +9,6 @@ import { call, put, retry } from "redux-saga/effects";
 import { AxiosResponse } from "axios";
 import { PostModel } from "../models/post.model";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { NewProduct } from "../components/newproduct/newproductwithreacthookform";
 
 function GetAllProducts() {
   return axios.get<AxiosResponse<ProductModel[]>>(

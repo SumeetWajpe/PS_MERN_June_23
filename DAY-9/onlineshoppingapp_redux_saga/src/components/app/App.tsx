@@ -3,10 +3,10 @@ import React, { Suspense } from "react";
 
 import { ListOfProducts } from "../listofproducts/listofproducts.component";
 import Header from "../header/header.component";
-import { NewProduct } from "../newproduct/newproductwithreacthookform";
 import ProductDetails from "../productdetails/productdetails.component";
 import { CartSummary } from "../page/cartsummary/cartsummary.component";
 import PostDetails from "../postdetails/postdetails.component";
+import { GrandParent } from "../../context/context.api";
 
 //Code-Splitting/LazyLoading
 const Posts = React.lazy(() => import("../posts/posts"));
@@ -25,10 +25,10 @@ function App() {
           }
         />
         <Route path="/postdetails/:id" element={<PostDetails />} />
-        <Route path="/newproduct" element={<NewProduct />} />
 
         <Route path="/productdetails/:id" element={<ProductDetails />} />
         <Route path="/cartsummary" element={<CartSummary />} />
+        <Route path="/context" element={<GrandParent />} />
 
         <Route
           path="*"
