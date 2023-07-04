@@ -3,6 +3,7 @@ import { ProductModel } from "../../models/product.model";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addNewProduct } from "../../redux/reducers/products.reducer";
+import { SagaActions } from "../../saga/saga.actions";
 
 type ProductInput = {
   ProductId: number;
@@ -39,7 +40,10 @@ export const NewProduct: React.FC = () => {
                 data.ProductDescription,
               );
 
-              dispatch(addNewProduct(newProduct));
+              dispatch({
+                type: SagaActions.ADD_NEW_PRODUCT,
+                payload: newProduct,
+              });
               // fetch("http://localhost:3005/products", {
               //   method: "POST",
               //   headers: { "Content-Type": "application/json" },

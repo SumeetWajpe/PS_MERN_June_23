@@ -44,6 +44,15 @@
       "rating": 4,
       "imageUrl": "https://i.insider.com/627ba06fdd983300191c8b6f?width=1200&format=jpeg",
       "description": "Buy Apple iPods at India's Best Online Shopping Store. Choose from a wide range of ipods for the best music experience. ✓Best Deals ✓COD."
+    },
+    {
+      "id": 60,
+      "title": "iPad",
+      "price": 10000,
+      "likes": 200,
+      "rating": 4,
+      "imageUrl": "https://i.insider.com/627ba06fdd983300191c8b6f?width=1200&format=jpeg",
+      "description": "iPad"
     }
   ]
 }

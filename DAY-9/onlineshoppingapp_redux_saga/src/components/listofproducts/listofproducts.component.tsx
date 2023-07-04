@@ -19,14 +19,14 @@ export const ListOfProducts: FC = () => {
       <header>
         <h1> List Of Products</h1>
       </header>
-      <button
+      {/* <button 
       // uncomment for retry effect
       // onClick={() => {
       //   dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
       // }}
-      >
-        Get Products !
-      </button>
+      // >
+      //   Get Products !
+  // </button> */}
       <div className="row">
         {products?.map((product: ProductModel) => (
           <ProductComponent productdetails={product} key={product.id} />
