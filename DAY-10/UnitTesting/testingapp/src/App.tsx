@@ -3,11 +3,13 @@ import logo from "./logo.svg";
 import "./App.css";
 
 type AppProps = {
-  initialCount: number;
+  initialCount?: number;
 };
 
 function App(props: AppProps) {
-  const [count, setCount] = useState(props.initialCount);
+  const [count, setCount] = useState(props.initialCount || 0);
+
+  
   return (
     <div className="App">
       <h3 className="header">{count}</h3>
