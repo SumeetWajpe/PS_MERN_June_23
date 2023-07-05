@@ -10,8 +10,26 @@ describe("suites for App component", () => {
     let appInstance = shallow(<App />);
     expect(appInstance).toBeDefined();
   });
-});
+  it("h3 is having 0 as the initial state value", () => {
+    // AAA -> Arrange -> Act -> Assert
 
+    // Arrange
+    let appInstance = shallow(<App />);
+    let h3Text = appInstance.find("h3").text();
+
+    expect(h3Text).toBe("0");
+  });
+  it("checks for incremented count on button click", () => {
+    // AAA -> Arrange -> Act -> Assert
+
+    // Arrange
+    let appInstance = shallow(<App />);
+    let button = appInstance.find("button");
+    button.simulate("click"); // trigger the click event
+    let h3Text = appInstance.find("h3").text();
+    expect(h3Text).toBe("1");
+  });
+});
 
 // npm i --save-dev enzyme enzyme-adapter-react-16 --force
 // npm i @types/enzyme-adapter-react-16 --force
