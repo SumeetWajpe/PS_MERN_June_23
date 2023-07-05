@@ -14,7 +14,7 @@ function App(props: AppProps) {
     <div className="App">
       <h3 className="header">{count}</h3>
       <button className="btn btn-primary" onClick={() => setCount(count + 1)}>
-        ++
+        +++
       </button>
     </div>
   );
