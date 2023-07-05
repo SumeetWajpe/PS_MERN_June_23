@@ -10,6 +10,8 @@ const server = http.createServer((req, res) => {
     fs.readFile(__dirname + "/../client/Index.html", (err, data) => {
       if (err) {
         console.log("Error !", err);
+        res.statusCode = 500;
+        res.end();
       } else {
         res.statusCode = 200;
         res.setHeader("Content-Type", "text/html");
@@ -36,6 +38,14 @@ const server = http.createServer((req, res) => {
         res.end(data.toString());
       }
     });
+  } else if (req.url == "/products") {
+    let products = [
+      { id: 1, title: "Laptop" },
+      { id: 2, title: "Shoes" },
+    ];
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "application/json");
+    res.end(JSON.stringify(products));
   }
 });
 
