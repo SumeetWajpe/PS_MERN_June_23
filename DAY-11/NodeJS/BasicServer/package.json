@@ -2,7 +2,6 @@
   "name": "basicserver",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "scripts": {
     "start": "nodemon app.js"
   },
