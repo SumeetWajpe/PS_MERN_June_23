@@ -14,7 +14,7 @@ describe("suites for App component", () => {
     // AAA -> Arrange -> Act -> Assert
 
     // Arrange
-    let appInstance = shallow(<App />);
+    let appInstance = shallow(<App initialCount={0} />);
     let h3Text = appInstance.find("h3").text();
 
     expect(h3Text).toBe("0");
@@ -23,7 +23,7 @@ describe("suites for App component", () => {
     // AAA -> Arrange -> Act -> Assert
 
     // Arrange
-    let appInstance = shallow(<App />);
+    let appInstance = shallow(<App initialCount={0} />);
     let button = appInstance.find("button");
     button.simulate("click"); // trigger the click event
     let h3Text = appInstance.find("h3").text();

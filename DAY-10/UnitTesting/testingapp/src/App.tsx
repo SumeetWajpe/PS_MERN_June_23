@@ -2,8 +2,12 @@ import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
+type AppProps = {
+  initialCount: number;
+};
+
+function App(props: AppProps) {
+  const [count, setCount] = useState(props.initialCount);
   return (
     <div className="App">
       <h3 className="header">{count}</h3>
