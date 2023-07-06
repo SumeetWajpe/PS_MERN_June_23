@@ -12,7 +12,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 
 function GetAllProducts() {
   return axios.get<AxiosResponse<ProductModel[]>>(
-    "http://localhost:3005/products",
+    "http://localhost:5555/products",
   );
 }
 
@@ -21,7 +21,7 @@ function DeleteAProduct(id: number) {
 }
 
 function AddANewProduct(newProduct: ProductModel) {
-  return axios.post("http://localhost:3005/products", newProduct);
+  return axios.post("http://localhost:5555/products", newProduct);
 }
 
 // Worker Saga

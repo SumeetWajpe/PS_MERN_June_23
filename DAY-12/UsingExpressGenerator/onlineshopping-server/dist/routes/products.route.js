@@ -8,6 +8,7 @@ const products_model_1 = __importDefault(require("../models/products.model"));
 var router = express_1.default.Router();
 /* GET home page. */
 router.get("/", function (req, res) {
+    // res.setHeader("Access-Control-Allow-Origin", "*"); // best practise to use cors middleware rather than setting this manually fro every request
     res.json(products_model_1.default);
 });
 exports.default = router;
