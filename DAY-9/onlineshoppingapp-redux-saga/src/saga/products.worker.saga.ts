@@ -17,11 +17,11 @@ function GetAllProducts() {
 }
 
 function DeleteAProduct(id: number) {
-  return axios.delete("http://localhost:3005/products/" + id);
+  return axios.delete("http://localhost:5555/products/product/" + id);
 }
 
 function AddANewProduct(newProduct: ProductModel) {
-  return axios.post("http://localhost:5555/products", newProduct);
+  return axios.post("http://localhost:5555/products/newproduct", newProduct);
 }
 
 // Worker Saga

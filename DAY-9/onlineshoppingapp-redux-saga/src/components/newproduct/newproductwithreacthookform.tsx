@@ -1,9 +1,10 @@
+import { ProductModel } from "../../models/product.model";
 import { useForm } from "react-hook-form";
-import { ProductModel } from "../../DAY-9/onlineshoppingapp_redux_saga/src/models/product.model";
+
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { addNewProduct } from "../../DAY-9/onlineshoppingapp_redux_saga/src/redux/reducers/products.reducer";
-import { SagaActions } from "../../DAY-9/onlineshoppingapp_redux_saga/src/saga/saga.actions";
+import { addNewProduct } from "../../redux/reducers/products.reducer";
+import { SagaActions } from "../../saga/saga.actions";
 
 type ProductInput = {
   ProductId: number;
