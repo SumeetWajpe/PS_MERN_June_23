@@ -1,9 +1,6 @@
-// var express = require('express');
 import express from "express";
 import path from "path";
-
 import productsRouter from "./routes/products.route";
-
 
 var app = express();
 
@@ -14,4 +11,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/products", productsRouter);
 
-module.exports = app;
+app.listen(5555, () => {
+  console.log("Server running @ port 5555 !");
+});
