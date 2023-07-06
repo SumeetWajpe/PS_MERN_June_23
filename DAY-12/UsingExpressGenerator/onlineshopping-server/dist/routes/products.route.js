@@ -4,9 +4,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
+const products_model_1 = __importDefault(require("../models/products.model"));
 var router = express_1.default.Router();
 /* GET home page. */
-router.get("/", function (req, res, next) {
-    res.send("Success !");
+router.get("/", function (req, res) {
+    res.json(products_model_1.default);
 });
 exports.default = router;
