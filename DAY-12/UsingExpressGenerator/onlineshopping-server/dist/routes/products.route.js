@@ -41,11 +41,8 @@ router.get("/videos/:id", (req, res) => {
     let videoPath = (theProduct === null || theProduct === void 0 ? void 0 : theProduct.videoUrl) || "";
     // let videoPath = "./videos/shoes.mp4";
     let vPath = path_1.default.resolve(videoPath);
-    console.log(vPath);
     const videoSize = fs_1.default.statSync(vPath).size;
-    // console.log(videoSize);
     const range = req.headers.range;
-    console.log(range);
     const chunk_size = Math.pow(10, 6); // 1MB
     const start = Number(range === null || range === void 0 ? void 0 : range.replace(/\D/g, ""));
     const end = Math.min(start + chunk_size, videoSize - 1);
