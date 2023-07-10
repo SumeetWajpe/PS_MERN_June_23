@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import data from "../models/products.model";
 import path from "path";
+import fs from "fs";
 var router = express.Router();
 
 /* GET home page. */
@@ -42,7 +43,9 @@ router.get("/videos/:id", (req: Request, res: Response) => {
   let videoPath = theProduct?.videoUrl || "";
   // let videoPath = "./videos/shoes.mp4";
   let vPath = path.resolve(videoPath);
-  console.log(vPath);
+  // console.log(vPath);
+  const videoSize = fs.statSync(vPath).size;
+  // console.log(videoSize);
 });
 
 export default router;

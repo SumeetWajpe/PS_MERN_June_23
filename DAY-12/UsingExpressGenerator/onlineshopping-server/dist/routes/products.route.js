@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const products_model_1 = __importDefault(require("../models/products.model"));
 const path_1 = __importDefault(require("path"));
+const fs_1 = __importDefault(require("fs"));
 var router = express_1.default.Router();
 /* GET home page. */
 router.get("/", function (req, res) {
@@ -40,6 +41,8 @@ router.get("/videos/:id", (req, res) => {
     let videoPath = (theProduct === null || theProduct === void 0 ? void 0 : theProduct.videoUrl) || "";
     // let videoPath = "./videos/shoes.mp4";
     let vPath = path_1.default.resolve(videoPath);
-    console.log(vPath);
+    // console.log(vPath);
+    const videoSize = fs_1.default.statSync(vPath).size;
+    // console.log(videoSize);
 });
 exports.default = router;
