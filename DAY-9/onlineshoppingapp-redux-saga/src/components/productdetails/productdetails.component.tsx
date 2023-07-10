@@ -28,7 +28,7 @@ export default function ProductDetails() {
           height="100%"
           width="100%"
           controls
-          src={"http://localhost:5555/products/videos/" + theProduct.id}
+          src={"http://localhost:5555/products/videos/" + id}
         />
       </div>
       <div className="col-md-3 border-start">

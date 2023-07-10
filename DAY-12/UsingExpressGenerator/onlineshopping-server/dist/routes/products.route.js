@@ -36,25 +36,32 @@ router.get("/videos/:id", (req, res) => {
     // 1st request (range bytes=0-) -> response (1MB)
     // 2nd request (range bytes=100001-200001)
     // 3rd request (range bytes=200001-300000)
-    let productId = parseInt(req.params.id);
-    let theProduct = products_model_1.default.products.find(p => p.id == productId);
-    let videoPath = (theProduct === null || theProduct === void 0 ? void 0 : theProduct.videoUrl) || "";
-    // let videoPath = "./videos/shoes.mp4";
-    let vPath = path_1.default.resolve(videoPath);
-    const videoSize = fs_1.default.statSync(vPath).size;
-    const range = req.headers.range;
-    const chunk_size = Math.pow(10, 6); // 1MB
-    const start = Number(range === null || range === void 0 ? void 0 : range.replace(/\D/g, ""));
-    const end = Math.min(start + chunk_size, videoSize - 1);
-    const contentLength = end - start + 1;
-    const headers = {
-        "Content-Range": `bytes ${start}-${end}/${videoSize}`,
-        "Accept-Ranges": "bytes",
-        "Content-Type": "video/mp4",
-        "Content-Length": contentLength,
-    };
-    const videoStream = fs_1.default.createReadStream(videoPath, { start, end });
-    res.writeHead(206, headers);
-    videoStream.pipe(res);
+    try {
+        let productId = parseInt(req.params.id);
+        console.log(productId);
+        let theProduct = products_model_1.default.products.find(p => p.id === productId);
+        console.log(theProduct);
+        let videoPath = (theProduct === null || theProduct === void 0 ? void 0 : theProduct.videoUrl) || "";
+        // let videoPath = "./videos/shoes.mp4";
+        let vPath = path_1.default.resolve(videoPath);
+        const videoSize = fs_1.default.statSync(vPath).size;
+        const range = req.headers.range;
+        const chunk_size = Math.pow(10, 6); // 1MB
+        const start = Number(range === null || range === void 0 ? void 0 : range.replace(/\D/g, ""));
+        const end = Math.min(start + chunk_size, videoSize - 1);
+        const contentLength = end - start + 1;
+        const headers = {
+            "Content-Range": `bytes ${start}-${end}/${videoSize}`,
+            "Accept-Ranges": "bytes",
+            "Content-Type": "video/mp4",
+            "Content-Length": contentLength,
+        };
+        const videoStream = fs_1.default.createReadStream(videoPath, { start, end });
+        res.writeHead(206, headers);
+        videoStream.pipe(res);
+    }
+    catch (error) {
+        console.log(error);
+    }
 });
 exports.default = router;
