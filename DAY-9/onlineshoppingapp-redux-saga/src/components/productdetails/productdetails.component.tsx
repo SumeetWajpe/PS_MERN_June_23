@@ -24,7 +24,12 @@ export default function ProductDetails() {
           height="100%"
           width="100%"
         /> */}
-        <video src={"http://localhost:5555/products/videos/" + theProduct.id} />
+        <video
+          height="100%"
+          width="100%"
+          controls
+          src={"http://localhost:5555/products/videos/" + theProduct.id}
+        />
       </div>
       <div className="col-md-3 border-start">
         {/* <h2>{theProduct.title}</h2> */}

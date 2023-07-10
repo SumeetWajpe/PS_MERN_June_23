@@ -35,17 +35,35 @@ router.get("/videos/:id", (req: Request, res: Response) => {
   // chunk size / range size -> 1 MB
 
   // video -> src
-  // 1st response -> 1MB
-  // 2nd chunk -> 1MB
-  // 3rd chunk -> 1MB
+  // 1st request (range bytes=0-) -> response (1MB)
+  // 2nd request (range bytes=100001-200001)
+  // 3rd request (range bytes=200001-300000)
+
   let productId: number = parseInt(req.params.id);
   let theProduct = data.products.find(p => p.id == productId);
   let videoPath = theProduct?.videoUrl || "";
   // let videoPath = "./videos/shoes.mp4";
   let vPath = path.resolve(videoPath);
-  // console.log(vPath);
+  console.log(vPath);
   const videoSize = fs.statSync(vPath).size;
   // console.log(videoSize);
+  const range = req.headers.range;
+  console.log(range);
+  const chunk_size = 10 ** 6; // 1MB
+  const start = Number(range?.replace(/\D/g, ""));
+  const end = Math.min(start + chunk_size, videoSize - 1);
+
+  const contentLength = end - start + 1;
+  const headers = {
+    "Content-Range": `bytes ${start}-${end}/${videoSize}`,
+    "Accept-Ranges": "bytes",
+    "Content-Type": "video/mp4",
+    "Content-Length": contentLength,
+  };
+
+  const videoStream = fs.createReadStream(videoPath, { start, end });
+  res.writeHead(206, headers);
+  videoStream.pipe(res);
 });
 
 export default router;
