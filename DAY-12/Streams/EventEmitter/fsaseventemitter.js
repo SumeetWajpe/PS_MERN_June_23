@@ -1,11 +1,11 @@
 var fs = require("fs");
 
 // fs.readFile("Input.txt", (err, data) => {
-//   console.log(data.toString());
+//   console.log(data);
 // });
 
-let readableStream = fs.createReadStream("Input.txt", "utf-8");
-let writableStream = fs.createWriteStream("Output.txt", "utf-8");
+// let readableStream = fs.createReadStream("Input.txt", "utf-8");
+// let writableStream = fs.createWriteStream("Output.txt", "utf-8");
 
 // let dataToBeWritten = "";
 // readableStream.on("data", chunk => {
@@ -19,6 +19,7 @@ let writableStream = fs.createWriteStream("Output.txt", "utf-8");
 //   writableStream.end(); // closing the writable stream
 // });
 
-readableStream.pipe(writableStream);
+// pipe -> to streamline the writing of data to the writablestream as and when the data is read from readable stream
+// readableStream.pipe(writableStream);
 
 console.log("Ended !");

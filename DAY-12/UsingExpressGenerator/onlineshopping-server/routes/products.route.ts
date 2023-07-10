@@ -23,4 +23,8 @@ router.delete("/product/:id", (req: Request, res: Response) => {
   res.json({ msg: "Product Deleted successfully !" });
 });
 
+router.get("/videos/:id", (req: Request, res: Response) => {
+  // send chunk of the video
+});
+
 export default router;

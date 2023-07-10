@@ -17,13 +17,14 @@ export default function ProductDetails() {
   return (
     <main className="row my-2">
       <div className="col-md-9">
-        <img
+        {/* <img
           src={theProduct.imageUrl}
           className="card-img-top"
           alt={theProduct.title}
           height="100%"
           width="100%"
-        />
+        /> */}
+        <video src={"http://localhost:5555/products/videos/" + theProduct.id} />
       </div>
       <div className="col-md-3 border-start">
         {/* <h2>{theProduct.title}</h2> */}
