@@ -1,5 +1,5 @@
 // use onlineshoppingdb -> switch current database to be onlineshoppingdb
 
-// db.products.find()  -> select * from
+// db.products.find()  -> select * from table
 
 // db.products.find({title:"Macbook Pro"})   // using where in SQL

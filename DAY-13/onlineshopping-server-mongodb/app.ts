@@ -2,6 +2,12 @@ import express from "express";
 import path from "path";
 import productsRouter from "./routes/products.route";
 import cors from "cors";
+import mongoose from "mongoose";
+
+mongoose.connect("mongodb://localhost:27017/onlineshoppingdb");
+mongoose.connection.on("open", () => {
+  console.log("Onlineshoppingdb connected successfully !");
+});
 
 var app = express();
 

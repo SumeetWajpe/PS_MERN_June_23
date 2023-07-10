@@ -7,6 +7,11 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const products_route_1 = __importDefault(require("./routes/products.route"));
 const cors_1 = __importDefault(require("cors"));
+const mongoose_1 = __importDefault(require("mongoose"));
+mongoose_1.default.connect("mongodb://localhost:27017/onlineshoppingdb");
+mongoose_1.default.connection.on("open", () => {
+    console.log("Onlineshoppingdb connected successfully !");
+});
 var app = (0, express_1.default)();
 app.use((0, cors_1.default)()); // enable cors at application level
 app.use(express_1.default.json());
