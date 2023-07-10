@@ -32,13 +32,19 @@ router.post("/newproduct", async (req: Request, res: Response) => {
   }
 });
 
-router.delete("/product/:id", (req: Request, res: Response) => {
+router.delete("/product/:id", async (req: Request, res: Response) => {
   try {
     let productId: number = parseInt(req.params.id);
 
-    res.json({ msg: "Product Deleted successfully !" });
-  } catch (error) {
+    let result = await products.deleteOne({ id: productId });
+    if (result.acknowledged && result.deletedCount) {
+      res.json({ msg: "Product Deleted successfully !" });
+    } else {
+      throw new Error("Something went wrong !");
+    }
+  } catch (error: any) {
     console.log(error);
+    res.status(500).json({ error: error?.message as string });
   }
 });
 

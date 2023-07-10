@@ -43,15 +43,22 @@ router.post("/newproduct", (req, res) => __awaiter(void 0, void 0, void 0, funct
         res.status(500).json({ msg: "Something went wrong !" });
     }
 }));
-router.delete("/product/:id", (req, res) => {
+router.delete("/product/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let productId = parseInt(req.params.id);
-        res.json({ msg: "Product Deleted successfully !" });
+        let result = yield products_model_1.default.deleteOne({ id: productId });
+        if (result.acknowledged && result.deletedCount) {
+            res.json({ msg: "Product Deleted successfully !" });
+        }
+        else {
+            throw new Error("Something went wrong !");
+        }
     }
     catch (error) {
         console.log(error);
+        res.status(500).json({ error: error === null || error === void 0 ? void 0 : error.message });
     }
-});
+}));
 router.get("/videos/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let productId = parseInt(req.params.id);
