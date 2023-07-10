@@ -7,21 +7,35 @@ var router = express.Router();
 /* GET home page. */
 router.get("/", function (req: Request, res: Response) {
   // res.setHeader("Access-Control-Allow-Origin", "*"); // best practise to use cors middleware rather than setting this manually fro every request
-  res.json(data.products);
+  try {
+    res.json(data.products);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Something went wrong !" });
+  }
 });
 
 router.post("/newproduct", (req: Request, res: Response) => {
-  let newProduct = req.body; // populated by express.json() middleware
-  console.log(newProduct);
+  try {
+    let newProduct = req.body; // populated by express.json() middleware
+    console.log(newProduct);
 
-  data.products.push(newProduct);
-  res.status(201).json(newProduct);
+    data.products.push(newProduct);
+    res.status(201).json(newProduct);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ msg: "Something went wrong !" });
+  }
 });
 
 router.delete("/product/:id", (req: Request, res: Response) => {
-  let productId: number = parseInt(req.params.id);
-  data.products = data.products.filter(p => p.id !== productId);
-  res.json({ msg: "Product Deleted successfully !" });
+  try {
+    let productId: number = parseInt(req.params.id);
+    data.products = data.products.filter(p => p.id !== productId);
+    res.json({ msg: "Product Deleted successfully !" });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 router.get("/videos/:id", (req: Request, res: Response) => {
@@ -41,9 +55,7 @@ router.get("/videos/:id", (req: Request, res: Response) => {
 
   try {
     let productId: number = parseInt(req.params.id);
-    console.log(productId);
     let theProduct = data.products.find(p => p.id === productId);
-    console.log(theProduct);
     let videoPath = theProduct?.videoUrl || "";
     // let videoPath = "./videos/shoes.mp4";
     let vPath = path.resolve(videoPath);

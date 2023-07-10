@@ -11,18 +11,35 @@ var router = express_1.default.Router();
 /* GET home page. */
 router.get("/", function (req, res) {
     // res.setHeader("Access-Control-Allow-Origin", "*"); // best practise to use cors middleware rather than setting this manually fro every request
-    res.json(products_model_1.default.products);
+    try {
+        res.json(products_model_1.default.products);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: "Something went wrong !" });
+    }
 });
 router.post("/newproduct", (req, res) => {
-    let newProduct = req.body; // populated by express.json() middleware
-    console.log(newProduct);
-    products_model_1.default.products.push(newProduct);
-    res.status(201).json(newProduct);
+    try {
+        let newProduct = req.body; // populated by express.json() middleware
+        console.log(newProduct);
+        products_model_1.default.products.push(newProduct);
+        res.status(201).json(newProduct);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).json({ msg: "Something went wrong !" });
+    }
 });
 router.delete("/product/:id", (req, res) => {
-    let productId = parseInt(req.params.id);
-    products_model_1.default.products = products_model_1.default.products.filter(p => p.id !== productId);
-    res.json({ msg: "Product Deleted successfully !" });
+    try {
+        let productId = parseInt(req.params.id);
+        products_model_1.default.products = products_model_1.default.products.filter(p => p.id !== productId);
+        res.json({ msg: "Product Deleted successfully !" });
+    }
+    catch (error) {
+        console.log(error);
+    }
 });
 router.get("/videos/:id", (req, res) => {
     // send chunk of the video
@@ -38,9 +55,7 @@ router.get("/videos/:id", (req, res) => {
     // 3rd request (range bytes=200001-300000)
     try {
         let productId = parseInt(req.params.id);
-        console.log(productId);
         let theProduct = products_model_1.default.products.find(p => p.id === productId);
-        console.log(theProduct);
         let videoPath = (theProduct === null || theProduct === void 0 ? void 0 : theProduct.videoUrl) || "";
         // let videoPath = "./videos/shoes.mp4";
         let vPath = path_1.default.resolve(videoPath);
