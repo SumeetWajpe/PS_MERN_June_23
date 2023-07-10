@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 import data from "../models/products.model";
-
+import path from "path";
 var router = express.Router();
 
 /* GET home page. */
@@ -25,6 +25,24 @@ router.delete("/product/:id", (req: Request, res: Response) => {
 
 router.get("/videos/:id", (req: Request, res: Response) => {
   // send chunk of the video
+  // path to the video
+  // status code - 200 success |  201 success (created) | 206 success (partial content)
+  // range header
+  // fs -> read the video
+  // pipe (send the response to client)
+
+  // chunk size / range size -> 1 MB
+
+  // video -> src
+  // 1st response -> 1MB
+  // 2nd chunk -> 1MB
+  // 3rd chunk -> 1MB
+  let productId: number = parseInt(req.params.id);
+  let theProduct = data.products.find(p => p.id == productId);
+  let videoPath = theProduct?.videoUrl || "";
+  // let videoPath = "./videos/shoes.mp4";
+  let vPath = path.resolve(videoPath);
+  console.log(vPath);
 });
 
 export default router;

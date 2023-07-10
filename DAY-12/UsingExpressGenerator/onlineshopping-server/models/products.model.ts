@@ -6,6 +6,7 @@ let data = {
       price: 250000,
       rating: 5,
       likes: 200,
+      videoUrl:"./videos/shoes.mp4",
       imageUrl:
         "https://photos5.appleinsider.com/gallery/45240-88149-The-new-MacBook-Pro-16-inch-xl.jpg",
     },
