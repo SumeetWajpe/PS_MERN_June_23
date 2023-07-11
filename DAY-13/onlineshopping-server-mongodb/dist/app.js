@@ -8,7 +8,9 @@ const path_1 = __importDefault(require("path"));
 const products_route_1 = __importDefault(require("./routes/products.route"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
-mongoose_1.default.connect("mongodb://localhost:27017/onlineshoppingdb");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+mongoose_1.default.connect(process.env.MONGODB_CONNECTION_STR || "", {});
 mongoose_1.default.connection.on("open", () => {
     console.log("Onlineshoppingdb connected successfully !");
 });
@@ -18,6 +20,6 @@ app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
 app.use("/products", products_route_1.default);
-app.listen(5555, () => {
-    console.log("Server running @ port 5555 !");
+app.listen(process.env.PORT, () => {
+    console.log(`Server running @ port ${process.env.PORT} !`);
 });
