@@ -12,7 +12,7 @@ export const CartBadge: FC = () => {
         className="badge text-bg-warning mx-1"
         style={{ textDecoration: "none" }}
       >
-        <Link to="/cartsummary">{cart.length}</Link>{" "}
+        <Link to="/dashboard/cartsummary">{cart.length}</Link>{" "}
       </span>
     </div>
   );

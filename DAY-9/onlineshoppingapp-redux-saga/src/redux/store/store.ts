@@ -4,13 +4,14 @@ import posts from "../reducers/posts.reducer";
 import cart from "../reducers/cart.reducer";
 import createSagaMiddlware from "redux-saga";
 import rootSaga from "../../saga/saga";
-
+import user from "../reducers/user.reducer";
 const sagaMiddleware = createSagaMiddlware();
 const store = configureStore({
   reducer: {
     products,
     posts,
     cart,
+    user,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({ serializableCheck: false }).concat([sagaMiddleware]),

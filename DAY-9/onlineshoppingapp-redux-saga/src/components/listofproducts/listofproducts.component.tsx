@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import { ProductModel } from "../../models/product.model";
 import { ProductComponent } from "../product/product.component";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,9 +9,11 @@ export const ListOfProducts: FC = () => {
   const products: ProductModel[] = useSelector(
     (store: AppState) => store.products,
   );
+  const user = useSelector((store: AppState) => store.user);
   let dispatch = useDispatch<AppDispatch>();
   useEffect(() => {
-    dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC });
+    console.log(user);
+    dispatch({ type: SagaActions.FETCH_PRODUCTS_ASYNC, payload: user.token });
   }, []);
 
   return (

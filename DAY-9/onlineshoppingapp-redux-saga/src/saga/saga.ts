@@ -4,7 +4,6 @@ import {
   addNewProductToServer,
   deleteProductFromServer,
   fetchProducts,
-  fetchProductsWithRetry,
 } from "./products.worker.saga";
 
 // root Saga (watcher Saga)

@@ -12,7 +12,7 @@ router.post("/login", (req: Request, res: Response) => {
     { expiresIn: "2 Days" },
     (err, token) => {
       if (err) console.log(err);
-      else return res.cookie("jwt-token", token).json({ msg: "success" });
+      else return res.json({ token });
     },
   );
 });

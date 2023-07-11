@@ -21,7 +21,7 @@ export const ProductComponent: FC<ProductProps> = (props: ProductProps) => {
     <>
       <div className="col-md-3 my-1">
         <div className="card">
-          <Link to={`/productdetails/${props.productdetails.id}`}>
+          <Link to={`/dashboard/productdetails/${props.productdetails.id}`}>
             <img
               src={props.productdetails.imageUrl}
               className="card-img-top"

@@ -19,7 +19,7 @@ const products_model_1 = __importDefault(require("../models/products.model"));
 const auth_middleware_1 = require("../middleware/auth.middleware");
 var router = express_1.default.Router();
 /* GET home page. */
-router.get("/", auth_middleware_1.isAuthenticated, function (req, res) {
+router.post("/", auth_middleware_1.isAuthenticated, function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         // res.setHeader("Access-Control-Allow-Origin", "*"); // best practise to use cors middleware rather than setting this manually fro every request
         let listofProductsfromDB = yield products_model_1.default.find(); //async
@@ -60,9 +60,7 @@ router.delete("/product/:id", auth_middleware_1.isAuthenticated, (req, res) => _
         res.status(500).json({ error: error === null || error === void 0 ? void 0 : error.message });
     }
 }));
-router.get("/videos/:id", 
-// isAuthenticated,
-(req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/videos/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let productId = parseInt(req.params.id);
         let theProduct = yield products_model_1.default.findOne({ id: productId });

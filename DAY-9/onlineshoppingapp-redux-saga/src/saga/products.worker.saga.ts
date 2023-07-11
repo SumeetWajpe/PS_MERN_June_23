@@ -9,25 +9,43 @@ import { call, put, retry } from "redux-saga/effects";
 import { AxiosResponse } from "axios";
 import { PostModel } from "../models/post.model";
 import { PayloadAction } from "@reduxjs/toolkit";
+import { AuthModel } from "../models/auth.model";
 
-function GetAllProducts() {
-  return axios.get<AxiosResponse<ProductModel[]>>(
+function GetAllProducts(token: string) {
+  return axios.post<AxiosResponse<ProductModel[]>>(
     "http://localhost:5555/products",
+    {},
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
   );
 }
 
 function DeleteAProduct(id: number) {
-  return axios.delete("http://localhost:5555/products/product/" + id);
+  let token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU3VtZWV0IiwibGFzdExvZ2luIjoiTW9uZGF5IDI1dGgiLCJpYXQiOjE2ODkwNzQ4MzEsImV4cCI6MTY4OTI0NzYzMX0.0MznuCyP8N2g9XasjN6u9CV5aj-oJYvwJ-nk2Bi_Rjg";
+  // Add token here as well
+  return axios.delete("http://localhost:5555/products/product/" + id, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
 
 function AddANewProduct(newProduct: ProductModel) {
+  // Add token here as well
   return axios.post("http://localhost:5555/products/newproduct", newProduct);
 }
 
 // Worker Saga
-export function* fetchProducts() {
+export function* fetchProducts(action: PayloadAction<string>) {
   try {
-    const response: AxiosResponse<ProductModel[]> = yield call(GetAllProducts); // calls GetAllProducts
+    const response: AxiosResponse<ProductModel[]> = yield call(
+      GetAllProducts,
+      action.payload,
+    ); // calls GetAllProducts
 
     if (response.status == 200) {
       yield put(setAllProducts(response.data)); // put - dispatch the action (reducer with payload)
@@ -37,17 +55,17 @@ export function* fetchProducts() {
   }
 }
 
-export function* fetchProductsWithRetry() {
-  try {
-    let duration = 1000;
-    let response: AxiosResponse<ProductModel[]> = yield retry(
-      3,
-      duration * 10,
-      GetAllProducts,
-    );
-    yield put(setAllProducts(response.data));
-  } catch (error) {}
-}
+// export function* fetchProductsWithRetry() {
+//   try {
+//     let duration = 1000;
+//     let response: AxiosResponse<ProductModel[]> = yield retry(
+//       3,
+//       duration * 10,
+//       GetAllProducts,
+//     );
+//     yield put(setAllProducts(response.data));
+//   } catch (error) {}
+// }
 
 export function* deleteProductFromServer(action: PayloadAction<number>) {
   try {

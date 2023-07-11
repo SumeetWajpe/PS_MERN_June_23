@@ -2,6 +2,8 @@ import React from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUserAuthenticated } from "../../redux/reducers/user.reducer";
 
 type LoginInput = {
   uname: string;
@@ -9,6 +11,7 @@ type LoginInput = {
 };
 const Login: React.FC = () => {
   let navigate = useNavigate();
+  let dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -34,22 +37,29 @@ const Login: React.FC = () => {
             })
               .then(res => res.json())
               .then(response => {
-                if (response.msg === "success") {
-                  navigate("/dashboard");
+                if (response.token) {
+                  dispatch(
+                    setUserAuthenticated({
+                      isUserAuthenticated: true,
+                      uname: data.uname,
+                      token: response.token, // set the token
+                    }),
+                  );
+                  navigate("/dashboard", { replace: true });
                 }
               });
           })}
         >
           <input
             type="text"
-            className="fadeIn second"
+            className="fadeIn second login-input"
             placeholder="login"
             {...register("uname")}
           />
           <input
             type="password"
             id="password"
-            className="fadeIn third"
+            className="fadeIn third login-input"
             placeholder="password"
             {...register("pwd")}
           />
