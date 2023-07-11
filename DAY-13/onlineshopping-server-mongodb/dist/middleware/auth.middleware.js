@@ -15,12 +15,13 @@ const isAuthenticated = (req, res, next) => {
             jsonwebtoken_1.default.verify(token, (_a = process.env.JWT_SECRET_KEY) !== null && _a !== void 0 ? _a : "", (err, decodedToken) => {
                 if (err)
                     return res.status(500).json({ err: "Invalid Token" });
+                // redirect to login page 
                 if (decodedToken)
                     next();
             });
         }
         else {
-            return res.status(401).json({ msg: "Token not found !" });
+            return res.status(401).json({ err: "Token not found !" });
         }
     }
     catch (error) { }

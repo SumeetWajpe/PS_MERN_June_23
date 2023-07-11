@@ -10,6 +10,7 @@ const auth_route_1 = __importDefault(require("./routes/auth.route"));
 const cors_1 = __importDefault(require("cors"));
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
+var cookieParser = require("cookie-parser");
 dotenv_1.default.config();
 mongoose_1.default.connect(process.env.MONGODB_CONNECTION_STR || "", {});
 mongoose_1.default.connection.on("open", () => {
@@ -19,6 +20,7 @@ var app = (0, express_1.default)();
 app.use((0, cors_1.default)()); // enable cors at application level
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: false }));
+app.use(cookieParser());
 app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
 app.use("/products", products_route_1.default);
 app.use("/auth", auth_route_1.default);

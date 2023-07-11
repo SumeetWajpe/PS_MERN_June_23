@@ -5,6 +5,8 @@ import authRouter from "./routes/auth.route";
 import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+var cookieParser = require("cookie-parser");
+
 dotenv.config();
 mongoose.connect(process.env.MONGODB_CONNECTION_STR || "", {});
 mongoose.connection.on("open", () => {
@@ -16,7 +18,7 @@ var app = express();
 app.use(cors()); // enable cors at application level
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/products", productsRouter);

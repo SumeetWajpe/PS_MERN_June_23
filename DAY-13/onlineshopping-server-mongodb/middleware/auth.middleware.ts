@@ -15,11 +15,12 @@ export const isAuthenticated = (
         process.env.JWT_SECRET_KEY ?? "",
         (err: any, decodedToken) => {
           if (err) return res.status(500).json({ err: "Invalid Token" });
+          // redirect to login page 
           if (decodedToken) next();
         },
       );
     } else {
-      return res.status(401).json({ msg: "Token not found !" });
+      return res.status(401).json({ err: "Token not found !" });
     }
   } catch (error) {}
 };

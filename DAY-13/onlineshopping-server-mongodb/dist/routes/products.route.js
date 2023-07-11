@@ -19,7 +19,7 @@ const products_model_1 = __importDefault(require("../models/products.model"));
 const auth_middleware_1 = require("../middleware/auth.middleware");
 var router = express_1.default.Router();
 /* GET home page. */
-router.get("/", auth_middleware_1.isAuthenticated, function (req, res) {
+router.get("/", function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         // res.setHeader("Access-Control-Allow-Origin", "*"); // best practise to use cors middleware rather than setting this manually fro every request
         let listofProductsfromDB = yield products_model_1.default.find(); //async
@@ -32,7 +32,7 @@ router.get("/", auth_middleware_1.isAuthenticated, function (req, res) {
         }
     });
 });
-router.post("/newproduct", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post("/newproduct", auth_middleware_1.isAuthenticated, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let newProductFromRequest = req.body; // populated by express.json() middleware
         let newProductToBeInserted = new products_model_1.default(Object.assign({}, newProductFromRequest));
@@ -44,7 +44,7 @@ router.post("/newproduct", (req, res) => __awaiter(void 0, void 0, void 0, funct
         res.status(500).json({ msg: "Something went wrong !" });
     }
 }));
-router.delete("/product/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.delete("/product/:id", auth_middleware_1.isAuthenticated, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let productId = parseInt(req.params.id);
         let result = yield products_model_1.default.deleteOne({ id: productId });
@@ -60,7 +60,9 @@ router.delete("/product/:id", (req, res) => __awaiter(void 0, void 0, void 0, fu
         res.status(500).json({ error: error === null || error === void 0 ? void 0 : error.message });
     }
 }));
-router.get("/videos/:id", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get("/videos/:id", 
+// isAuthenticated,
+(req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         let productId = parseInt(req.params.id);
         let theProduct = yield products_model_1.default.findOne({ id: productId });

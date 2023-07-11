@@ -8,29 +8,35 @@ import { CartSummary } from "../page/cartsummary/cartsummary.component";
 import PostDetails from "../postdetails/postdetails.component";
 import { GrandParent } from "../../context/context.api";
 import { NewProduct } from "../newproduct/newproductwithreacthookform";
+import Dashboard from "../dashboard/dashboard.component";
+import Login from "../login/login.component";
 
 //Code-Splitting/LazyLoading
 const Posts = React.lazy(() => import("../posts/posts"));
 function App() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
-        <Route path="/" element={<ListOfProducts />} />
-        <Route
-          path="/posts"
-          element={
-            <Suspense fallback={<div>Loading...</div>}>
-              <Posts />
-            </Suspense>
-          }
-        />
-        <Route path="/postdetails/:id" element={<PostDetails />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />}>
+          {/* <Route path="" element={<ListOfProducts />} /> */}
 
-        <Route path="/productdetails/:id" element={<ProductDetails />} />
-        <Route path="/cartsummary" element={<CartSummary />} />
-        <Route path="/context" element={<GrandParent />} />
-        <Route path="/newproduct" element={<NewProduct />} />
+          <Route index element={<ListOfProducts />} />
+          <Route
+            path="posts"
+            element={
+              <Suspense fallback={<div>Loading...</div>}>
+                <Posts />
+              </Suspense>
+            }
+          />
+          <Route path="postdetails/:id" element={<PostDetails />} />
+
+          <Route path="productdetails/:id" element={<ProductDetails />} />
+          <Route path="cartsummary" element={<CartSummary />} />
+          <Route path="context" element={<GrandParent />} />
+          <Route path="newproduct" element={<NewProduct />} />
+        </Route>
 
         <Route
           path="*"
