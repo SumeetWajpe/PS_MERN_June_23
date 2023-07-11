@@ -16,9 +16,10 @@ const express_1 = __importDefault(require("express"));
 const path_1 = __importDefault(require("path"));
 const fs_1 = __importDefault(require("fs"));
 const products_model_1 = __importDefault(require("../models/products.model"));
+const auth_middleware_1 = require("../middleware/auth.middleware");
 var router = express_1.default.Router();
 /* GET home page. */
-router.get("/", function (req, res) {
+router.get("/", auth_middleware_1.isAuthenticated, function (req, res) {
     return __awaiter(this, void 0, void 0, function* () {
         // res.setHeader("Access-Control-Allow-Origin", "*"); // best practise to use cors middleware rather than setting this manually fro every request
         let listofProductsfromDB = yield products_model_1.default.find(); //async
