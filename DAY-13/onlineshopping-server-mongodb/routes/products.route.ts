@@ -6,7 +6,7 @@ import { isAuthenticated } from "../middleware/auth.middleware";
 var router = express.Router();
 
 /* GET home page. */
-router.get("/", async function (req: Request, res: Response) {
+router.get("/", isAuthenticated, async function (req: Request, res: Response) {
   // res.setHeader("Access-Control-Allow-Origin", "*"); // best practise to use cors middleware rather than setting this manually fro every request
 
   let listofProductsfromDB = await products.find(); //async

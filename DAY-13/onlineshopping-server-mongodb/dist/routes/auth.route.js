@@ -15,7 +15,7 @@ router.post("/login", (req, res) => {
         if (err)
             console.log(err);
         else
-            return res.cookie("token", token).json({ msg: "success" });
+            return res.cookie("jwt-token", token).json({ msg: "success" });
     });
 });
 exports.default = router;
