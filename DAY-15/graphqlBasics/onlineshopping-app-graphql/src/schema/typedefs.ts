@@ -4,6 +4,8 @@ export const typeDefs = `#graphql
     type Query{
         products:[Product] # [] -> collection | array
         product(id:ID!):Product
+        reviews:[Review]
+        review(id:ID!):Review
     }
  # ! -> not null constraint
     type Product{
@@ -20,6 +22,14 @@ export const typeDefs = `#graphql
     type Offer{
         discount:String
         additionalDiscount:Int
+    }
+
+    type Review{
+        id:ID!,
+        comment:String,
+        user:String
+        product:Product
+       
     }
 
 `;

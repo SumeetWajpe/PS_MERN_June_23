@@ -13,3 +13,34 @@ query GetProductById($productId: ID!) {
     description
   }
 }
+
+
+// Using aliases
+
+query Reviews($reviewId: ID!,$anotherreviewId: ID!) {
+  firstreview:review(id: $reviewId) {
+    id
+    comment
+  }
+  secondreview:review(id: $anotherreviewId) {
+    id
+    comment
+  }
+}
+
+// Fragments
+
+query Reviews($reviewId: ID!,$anotherreviewId: ID!) {
+  firstreview:review(id: $reviewId) {
+   ...allreviewfields
+  }
+  secondreview:review(id: $anotherreviewId) {
+    ...allreviewfields
+  }
+}
+
+fragment allreviewfields on Review {
+  id
+    comment
+    user
+}
