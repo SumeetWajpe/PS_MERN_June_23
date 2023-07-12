@@ -14,7 +14,7 @@ router.post("/login", (req, res) => {
     const saltRounds = 10;
     bcrypt_1.default.hash(userInfo.pwd, saltRounds, function (err, hash) {
         // Store hash in your password DB.
-        console.log(hash);
+        console.log(hash); // store this in db !
     });
     let payload = { name: userInfo.username, lastLogin: "Monday 25th" };
     jsonwebtoken_1.default.sign(payload, (_a = process.env.JWT_SECRET_KEY) !== null && _a !== void 0 ? _a : "", { expiresIn: "2 Days" }, (err, token) => {

@@ -32,6 +32,7 @@ const Login: React.FC = () => {
         <form
           onSubmit={handleSubmit((data: LoginInput) => {
             // console.log(data);
+            // hash password & send
             fetch("http://localhost:5555/auth/login", {
               method: "POST",
               headers: {
