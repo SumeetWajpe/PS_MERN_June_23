@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "compile": "tsc",
-    "start": "npm run compile && nodemon ./dist/index.js"
+    "start": "concurrently \"tsc -w\" \"nodemon ./dist/index.js\""
   },
   "keywords": [],
   "author": "",
