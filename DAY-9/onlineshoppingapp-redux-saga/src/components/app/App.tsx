@@ -10,6 +10,7 @@ import { GrandParent } from "../../context/context.api";
 import { NewProduct } from "../newproduct/newproductwithreacthookform";
 import Dashboard from "../dashboard/dashboard.component";
 import Login from "../login/login.component";
+import RequireAuth from "../requireauth.hoc/requireauth.hoc";
 
 //Code-Splitting/LazyLoading
 const Posts = React.lazy(() => import("../posts/posts"));
@@ -18,7 +19,14 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />}>
+        <Route
+          path="/dashboard"
+          element={
+            <RequireAuth>
+              <Dashboard />
+            </RequireAuth>
+          }
+        >
           {/* <Route path="" element={<ListOfProducts />} /> */}
 
           <Route index element={<ListOfProducts />} />

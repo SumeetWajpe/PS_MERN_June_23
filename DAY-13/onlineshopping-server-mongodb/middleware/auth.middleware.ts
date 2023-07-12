@@ -18,9 +18,8 @@ export const isAuthenticated = (
     // }
     //use this if token passed in header
     const authHeader = req.headers.authorization; // Bearer token
-    console.log(authHeader);
     const token = authHeader?.split(" ")[1] || "";
-    console.log(token);
+
     if (token) {
       jwt.verify(
         token,

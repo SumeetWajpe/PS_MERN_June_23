@@ -20,9 +20,7 @@ const isAuthenticated = (req, res, next) => {
         // }
         //use this if token passed in header
         const authHeader = req.headers.authorization; // Bearer token
-        console.log(authHeader);
         const token = (authHeader === null || authHeader === void 0 ? void 0 : authHeader.split(" ")[1]) || "";
-        console.log(token);
         if (token) {
             jsonwebtoken_1.default.verify(token, (_a = process.env.JWT_SECRET_KEY) !== null && _a !== void 0 ? _a : "", (err, decodedToken) => {
                 if (err)
