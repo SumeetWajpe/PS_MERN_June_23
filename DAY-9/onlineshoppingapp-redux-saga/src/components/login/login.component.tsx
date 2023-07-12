@@ -1,7 +1,7 @@
 import React from "react";
 import "./login.css";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setUserAuthenticated } from "../../redux/reducers/user.reducer";
 
@@ -12,6 +12,7 @@ type LoginInput = {
 const Login: React.FC = () => {
   let navigate = useNavigate();
   let dispatch = useDispatch();
+  let location = useLocation();
   const {
     register,
     handleSubmit,
@@ -45,7 +46,9 @@ const Login: React.FC = () => {
                       token: response.token, // set the token
                     }),
                   );
-                  navigate("/dashboard", { replace: true });
+                  navigate(location.state ?? "/dashboard", {
+                    replace: true,
+                  });
                 }
               });
           })}
