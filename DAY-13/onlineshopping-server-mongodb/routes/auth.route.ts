@@ -1,10 +1,16 @@
 import express, { Request, Response } from "express";
 import jwt from "jsonwebtoken";
+import bcrypt from "bcrypt";
 var router = express.Router();
 
 router.post("/login", (req: Request, res: Response) => {
-  //   console.log(req.body);
+  console.log(req.body);
   let userInfo = req.body;
+  const saltRounds = 10;
+  bcrypt.hash(userInfo.pwd, saltRounds, function (err, hash) {
+    // Store hash in your password DB.
+    console.log(hash);
+  });
   let payload = { name: userInfo.username, lastLogin: "Monday 25th" };
   jwt.sign(
     payload,

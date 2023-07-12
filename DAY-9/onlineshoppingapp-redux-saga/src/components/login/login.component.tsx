@@ -34,6 +34,9 @@ const Login: React.FC = () => {
             // console.log(data);
             fetch("http://localhost:5555/auth/login", {
               method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
               body: JSON.stringify(data),
             })
               .then(res => res.json())
