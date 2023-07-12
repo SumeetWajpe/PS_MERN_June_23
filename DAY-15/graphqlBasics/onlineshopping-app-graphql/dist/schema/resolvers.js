@@ -4,8 +4,8 @@ import { productsData } from "../models/products.model.js";
 export const resolvers = {
     Query: {
         products: () => productsData.products,
-        product: (_, args) => {
-            return productsData.products.find(p => p.id === +args.id);
+        product: (_, { id }) => {
+            return productsData.products.find(p => p.id === +id);
         },
     },
 };

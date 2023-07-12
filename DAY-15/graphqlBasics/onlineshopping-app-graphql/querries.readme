@@ -1,0 +1,15 @@
+// Getting all Products with title and price
+query GetAllProducts{
+  products {
+    title
+    price
+  }
+}
+
+// Get Product By ID
+query GetProductById($productId: ID!) {
+  product(id: $productId) {
+    title
+    description
+  }
+}

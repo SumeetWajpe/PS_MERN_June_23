@@ -14,6 +14,12 @@ export const typeDefs = `#graphql
         imageUrl:String
         rating:Int
         description:String
+        offer:Offer
+    }
+
+    type Offer{
+        discount:String
+        additionalDiscount:Int
     }
 
 `;

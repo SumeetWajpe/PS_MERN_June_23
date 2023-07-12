@@ -1,3 +1,15 @@
+export class ProductModel {
+    constructor(id = 0, title = "", price = 0, likes = 0, rating = 0, imageUrl = "", description = "", offer) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.likes = likes;
+        this.rating = rating;
+        this.imageUrl = imageUrl;
+        this.description = description;
+        this.offer = offer;
+    }
+}
 export let productsData = {
     products: [
         {
@@ -6,6 +18,9 @@ export let productsData = {
             price: 250000,
             rating: 5,
             likes: 200,
+            offer: {
+                discount: "10%",
+            },
             imageUrl: "https://photos5.appleinsider.com/gallery/45240-88149-The-new-MacBook-Pro-16-inch-xl.jpg",
             description: "MacBook Pro. Our most powerful notebooks. Fast M1 processors, incredible graphics, and spectacular Retina displays. Now available in a 14-inch model.MacBook Pro. Our most powerful notebooks. Fast M1 processors, incredible graphics, and spectacular Retina displays. Now available in a 14-inch model.",
         },
