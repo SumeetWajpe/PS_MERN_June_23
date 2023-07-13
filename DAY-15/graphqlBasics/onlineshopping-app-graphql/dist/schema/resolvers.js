@@ -21,4 +21,11 @@ export const resolvers = {
             return theProduct;
         },
     },
+    Mutation: {
+        deleteProduct: (_, { id }) => {
+            let index = productsData.products.findIndex(p => p.id === +id);
+            let [deletedProduct] = productsData.products.splice(index, 1); // splice(index from which item needs to be deleted,no. of items to be deleted)
+            return deletedProduct.title;
+        },
+    },
 };

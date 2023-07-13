@@ -6,6 +6,11 @@ export const typeDefs = `#graphql
         product(id:ID!):Product
         reviews:[Review]
         review(id:ID!):Review
+    
+    }
+    
+    type Mutation{
+        deleteProduct(id:ID!):String
     }
  # ! -> not null constraint
     type Product{
@@ -29,7 +34,6 @@ export const typeDefs = `#graphql
         comment:String,
         user:String
         product:Product
-       
     }
 
 `;
