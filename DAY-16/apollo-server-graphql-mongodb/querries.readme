@@ -1,0 +1,46 @@
+// Getting all Products with title and price
+query GetAllProducts{
+  products {
+    title
+    price
+  }
+}
+
+// Get Product By ID
+query GetProductById($productId: ID!) {
+  product(id: $productId) {
+    title
+    description
+  }
+}
+
+
+// Using aliases
+
+query Reviews($reviewId: ID!,$anotherreviewId: ID!) {
+  firstreview:review(id: $reviewId) {
+    id
+    comment
+  }
+  secondreview:review(id: $anotherreviewId) {
+    id
+    comment
+  }
+}
+
+// Fragments
+
+query Reviews($reviewId: ID!,$anotherreviewId: ID!) {
+  firstreview:review(id: $reviewId) {
+   ...allreviewfields
+  }
+  secondreview:review(id: $anotherreviewId) {
+    ...allreviewfields
+  }
+}
+
+fragment allreviewfields on Review {
+  id
+    comment
+    user
+}
