@@ -1,4 +1,5 @@
 import ProductModel from "../models/products.model.js";
+import { generateToken } from "../utils/generateToken.js";
 
 // Resolvers -> extract the data  &  return the data
 // data?? -> database | rest api |  microservice | cms
@@ -8,6 +9,13 @@ export const resolvers = {
       await ProductModel.find({}).sort({ title: 1 }).skip(offset).limit(limit), // select * from
     product: async (_, { id }: { id: number }) => {
       return await ProductModel.findOne({ id });
+    },
+    login: async (_, { uname }: { uname: string }) => {
+      let token = await generateToken(uname);
+      return {
+        uname,
+        token,
+      };
     },
   },
 

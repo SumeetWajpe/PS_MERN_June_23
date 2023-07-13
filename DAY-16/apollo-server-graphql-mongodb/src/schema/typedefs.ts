@@ -6,9 +6,14 @@ export const typeDefs = `#graphql
         product(id:ID!):Product
         reviews:[Review]
         review(id:ID!):Review
-    
+        login(uname:String,pwd:String):User
     }
     
+    type User{
+        uname:String
+        token:String
+    }
+
     type Mutation{
         deleteProduct(id:ID!):ID
     }

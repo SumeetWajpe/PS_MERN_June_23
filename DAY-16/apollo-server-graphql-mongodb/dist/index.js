@@ -17,3 +17,11 @@ const { url } = await startStandaloneServer(server, {
     listen: { port: +process.env.PORT },
 });
 console.log(`🚀 Server ready at ${url}`);
+// context: ({ req, res }) => {
+//   // console.log("Executed on every request !");
+//   if (req.headers.authorization) {
+//     const header = req.headers.authorization;
+//     verifyToken(header);
+//   }
+//   return {};
+// },
