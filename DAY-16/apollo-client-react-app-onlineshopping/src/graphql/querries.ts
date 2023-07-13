@@ -28,3 +28,13 @@ export const GET_ALL_PRODUCTS = gql`
     }
   }
 `;
+
+// Login query
+export const LOGIN_QUERY = gql`
+  query Login($uname: String, $pwd: String) {
+    login(uname: $uname, pwd: $pwd) {
+      uname
+      token
+    }
+  }
+`;
