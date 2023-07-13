@@ -2,7 +2,7 @@ export const typeDefs = `#graphql
 
     #rootQuery
     type Query{
-        products:[Product] # [] -> collection | array
+        products(limit:Int,offset:Int):[Product] # [] -> collection | array
         product(id:ID!):Product
         reviews:[Review]
         review(id:ID!):Review

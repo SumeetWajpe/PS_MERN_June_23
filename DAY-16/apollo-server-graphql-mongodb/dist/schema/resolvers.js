@@ -3,7 +3,7 @@ import ProductModel from "../models/products.model.js";
 // data?? -> database | rest api |  microservice | cms
 export const resolvers = {
     Query: {
-        products: async () => await ProductModel.find({}),
+        products: async (_, { limit, offset }) => await ProductModel.find({}).sort({ title: 1 }).skip(offset).limit(limit),
         product: async (_, { id }) => {
             return await ProductModel.findOne({ id });
         },
