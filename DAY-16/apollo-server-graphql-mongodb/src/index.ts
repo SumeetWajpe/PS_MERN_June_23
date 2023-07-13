@@ -18,19 +18,21 @@ const server = new ApolloServer({
 
 const { url } = await startStandaloneServer(server, {
   listen: { port: +process.env.PORT },
+  context: async ({ req, res }) => {
+    try {
+      // console.log("Executed on every request !");
+      const authHeader = req.headers.authorization;
+      const token = authHeader.split(" ")[1];
+      if (token) {
+        const header = req.headers.authorization;
+        let user = await verifyToken(header);
+        return { user };
+      }
+      return {};
+    } catch (error) {
+      console.log(error);
+    }
+  },
 });
 
 console.log(`🚀 Server ready at ${url}`);
-
-
-
-
-// context: ({ req, res }) => {
-  //   // console.log("Executed on every request !");
-  //   if (req.headers.authorization) {
-  //     const header = req.headers.authorization;
-
-  //     verifyToken(header);
-  //   }
-  //   return {};
-  // },

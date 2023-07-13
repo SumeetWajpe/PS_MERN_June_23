@@ -31,7 +31,11 @@ const Login: React.FC = () => {
 
         <form
           onSubmit={handleSubmit((formdata: LoginInput) => {
-            login({ variables: { ...formdata } }).then(res => console.log(res));
+            login({ variables: { ...formdata } }).then(res => {
+              console.log(res);
+              sessionStorage.setItem("jwt-token", res?.data?.login?.token); // use Context API
+              navigate("/products");
+            });
           })}
         >
           <input

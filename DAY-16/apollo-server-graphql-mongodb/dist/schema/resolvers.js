@@ -4,7 +4,13 @@ import { generateToken } from "../utils/generateToken.js";
 // data?? -> database | rest api |  microservice | cms
 export const resolvers = {
     Query: {
-        products: async (_, { limit, offset }) => await ProductModel.find({}).sort({ title: 1 }).skip(offset).limit(limit),
+        products: async (_, { limit, offset }, ctx) => {
+            console.log(ctx);
+            return await ProductModel.find({})
+                .sort({ title: 1 })
+                .skip(offset)
+                .limit(limit); // select * from
+        },
         product: async (_, { id }) => {
             return await ProductModel.findOne({ id });
         },
