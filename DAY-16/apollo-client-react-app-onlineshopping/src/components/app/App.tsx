@@ -1,10 +1,13 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ListOfProducts } from "../listofproducts/listofproducts.component";
 
 function App() {
   return (
-    <div className="App">
-      <ListOfProducts />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ListOfProducts />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
