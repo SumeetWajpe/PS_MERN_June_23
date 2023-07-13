@@ -1,15 +1,11 @@
-import { useQuery } from "@apollo/client";
-import { GET_ALL_PRODUCTS } from "../../graphql/querries";
-import { useEffect } from "react";
+import { ListOfProducts } from "../listofproducts/listofproducts.component";
 
 function App() {
-  const { data, loading, error } = useQuery(GET_ALL_PRODUCTS);
-
-  useEffect(() => {
-    console.log(data);
-  }, []);
-
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <ListOfProducts />
+    </div>
+  );
 }
 
 export default App;
